@@ -1,3 +1,0 @@
-# Intro2ML_CW1_DecisionTrees
-
-Intro2ML_DecisionTrees

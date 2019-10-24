@@ -56,6 +56,26 @@ def split(S):
             continue
     return S_left, S_right, wifi_attr[random_attribute_index], rand_split_value
 
+def split_jr(S):
+    '''
+    recieves nx8 data set S
+    returns tuple (Wi , split) where Wi is the attribute index, Si is float value of binary split point
+    '''
+
+    numAtts = S.shape[1] - 1
+    #work out sample averages for each attribute`
+    sampleAverages = numpy.mean(S,0)
+
+    #work out each information gain for splitting on sample average
+    Gains = []
+    for i in range(numAtts):
+        Gains.append(Gain(S, sampleAverages[i]))
+
+    #find best information gain
+    attributeIndex = Gains.index(max(Gains))
+    split = sampleAverage[attributeLable]
+
+    return (attributeIndex, split)
 
 def remainder(S_l_r):
     S_left, S_right = S_l_r[:2]
@@ -80,8 +100,8 @@ def find_split(S):
 
 if __name__ == "__main__":
 
-    good_split = find_split(clean_dataset)
-
+    #good_split = find_split(clean_dataset)
+    good_split = split_jr(clean_dataset)
     gain, split = good_split
     sl, sr, wifi, split_value = split
 
