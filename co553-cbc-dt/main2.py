@@ -1,5 +1,4 @@
 import numpy as np
-import node
 from tree import DecisionTree
 from random import choice, randint
 
@@ -71,6 +70,13 @@ def print_results():
             #     pass
             # # If attribute is None, show the dataset
             # if None in node.split_attribute[1][2:]:
+            #     print(node.dataset)
+
+            if len(set([sample[-1] for sample in node.dataset])) == 1:
+                print('This node has one single label!')
+            #
+            # if node.children == None:
+            #     print('This node has no children!')
             #     print(node.dataset)
 
             sum += node.dataset.shape[0]

@@ -1,6 +1,15 @@
 from random import choice, randint
 import numpy as np
-from main2 import wifi_attr
+
+
+
+clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
+
+data_size = len(clean_dataset)
+
+wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
+
+
 
 
 def p_k(k, S):
@@ -52,10 +61,11 @@ def split(S):
     return S_left, S_right, wifi_attr[random_attribute_index], rand_split_value
 
 
-def remainder(S_l_r):
+def remainder(S_l_r, S):
     S_left, S_right = S_l_r[:2]
     # I ADDED THIS
     if len(S_right) == 0:
+        # print('ITS FUCKIUNG ZEROOooo')
         return 0
     size_left = len(S_left[0])
     size_right = len(S_right)
@@ -64,13 +74,16 @@ def remainder(S_l_r):
 
 
 def Gain(S, split):
-    return H(S) - remainder(split)
+    return H(S) - remainder(split,S)
 
 
 
 
 class Node():
+    '''
 
+
+    '''
     def __init__(self, tree, dataset, parent, children=list(), split_attribute=None):
 
         self.tree = tree
