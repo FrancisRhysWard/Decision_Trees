@@ -42,13 +42,18 @@ def split(S):
 
     rand_data_subset = S[int(size * 0.2): int(size * 0.8)]
 
-    values = [sample[random_attribute_index] for sample in rand_data_subset]
+    while True:
+        values = [sample[random_attribute_index] for sample in rand_data_subset]
 
-    rand_split_value = choice(values)
+        rand_split_value = choice(values)
 
-    S_left = [sample for sample in S if sample[random_attribute_index] <= rand_split_value]
+        S_left = [sample for sample in S if sample[random_attribute_index] <= rand_split_value]
 
-    S_right = [sample for sample in S if sample[random_attribute_index] > rand_split_value]
+        S_right = [sample for sample in S if sample[random_attribute_index] > rand_split_value]
+
+        if len(S_left) == 0 or len(S_right) == 0:
+            print('Its zero nigga')
+            continue
     return S_left, S_right, wifi_attr[random_attribute_index], rand_split_value
 
 
@@ -79,6 +84,8 @@ if __name__ == "__main__":
 
     gain, split = good_split
     sl, sr, wifi, split_value = split
+
+    ##next_split = find_split(sr)
 
     print(f"Gain = {gain} \n wfi = {wifi} \n split value = {split_value}")
 
