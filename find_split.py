@@ -12,10 +12,10 @@ def p_k(k, S):
     takes a label k and array of data S and returns the sample probability of k in S as a float
     '''
 
-    S_size = S.size
+    S_size = len(S)
 
-    if S_size == 0:
-        return 1  ## entropy 0 and therefore negative gain
+    #if S_size == 0:
+     #   return 1  ## entropy 0 and therefore negative gain
 
     number_k_in_S = len([s for s in S if s[-1] == k]) ## number of samples in S with label k
 
@@ -59,8 +59,8 @@ def split(S, wifi_index):
 
 def remainder(split):
     S_left, S_right = split[:2]
-    size_left = S_left.size
-    size_right = S_right.size
+    size_left = len(S_left)
+    size_right = len(S_right)
 
     return (size_left / (size_left + size_right) * H(S_left)) + (size_right / (size_left + size_right) * H(S_right))
 
@@ -73,7 +73,7 @@ def Gain(S, split):
 
 def find_split(S):
 
-    if S.size == 0:
+    if len(S) == 0:
         return None
 
     splits = []
@@ -92,6 +92,8 @@ def find_split(S):
 
 
 if __name__ == "__main__":
+
+    print(H(clean_dataset))
 
     print(f'type clean data = {type(clean_dataset)}', clean_dataset[:10])
 
