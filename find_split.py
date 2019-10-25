@@ -7,8 +7,6 @@ data_size = len(clean_dataset)
 
 wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
 
-print(clean_dataset[:10])
-
 def p_k(k, S):
     '''
     takes a label k and array of data S and returns the sample probability of k in S as a float
@@ -17,7 +15,7 @@ def p_k(k, S):
     S_size = S.size
 
     if S_size == 0:
-        return -1
+        return 1  ## entropy 0 and therefore negative gain
 
     number_k_in_S = len([s for s in S if s[-1] == k]) ## number of samples in S with label k
 
@@ -75,6 +73,9 @@ def Gain(S, split):
 
 def find_split(S):
 
+    if S.size == 0:
+        return None
+
     splits = []
 
     for i in range(len(wifi_attr)):
@@ -82,13 +83,17 @@ def find_split(S):
         splits.append(result_from_split)
     gains = [Gain(S, split) for split in splits]
     max_index = np.argmax(gains)
-    return gains[max_index], splits[max_index]
+    max_gain = gains[max_index]
+
+    if max_gain <= 0:
+        return None
+
+    return max_gain, splits[max_index]
 
 
 if __name__ == "__main__":
 
-
-    print(f'type clean data = {type(clean_dataset)}')
+    print(f'type clean data = {type(clean_dataset)}', clean_dataset[:10])
 
 
     good_split = find_split(clean_dataset)
@@ -104,6 +109,8 @@ if __name__ == "__main__":
 
     print(f"S_left entropy = {H(sl)}, Gain = {gain} \n wfi = {wifi} \n split value =       {split_value}")
 
+    zero_size_arr = np.array([])
+    print(f"find split of zero size array outputs: {find_split(zero_size_arr)}")
 '''
 split = split(clean_dataset)
 S_left, S_right, wifi, split_value = split
