@@ -42,7 +42,7 @@ def evaluate(test_data, learned_tree):
     '''
     takes a test array and a learned tree and returns test measures
     '''
-    total_size = test_data.size
+    total_size = len(test_data)
 
     tree_predictions = ## should = test_data with actual labels replace with predictions
 
