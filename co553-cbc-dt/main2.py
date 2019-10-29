@@ -62,8 +62,9 @@ def print_results():
         print('\n\n')
         sum = 0
         for node in layer:
-            print("LAYER #{} ---> Node #{} has an attribute: {} with dataset of length: {}"
-                  .format(tree.node_list.index(layer), layer.index(node), node.split_attribute[1][2:], node.dataset.shape))
+            print("LAYER #{} ---> Node #{} has an attribute: {}"# with dataset of length: {}"
+                .format(tree.node_list.index(layer), layer.index(node), node.split_attribute[1][2:],node.dataset.shape))
+
             # try:
             #     print("\t ---- Its children are {}".format(len(node.children)))
             # except:
