@@ -2,6 +2,8 @@ import numpy as np
 from random import choice, randint
 from predict import predict
 
+
+
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 
 ##noisy_data = np.loadtxt("./co553-cbc-dt/wifi_db/noisy_dataset.txt")
@@ -9,13 +11,13 @@ clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 wifi_labels = [1,2,3,4]
 
 
-def divide_data(data):
+def divide_data(data, n):
     '''
     takes a data set (np.array), shuffles it then splits it into ten arrays and returns a list of these arrays
     '''
     np.random.shuffle(data) ## shuffles data
 
-    return np.split(data, 10)  ## returns list of 10 np arrays used as CV folds
+    return np.split(data, n)  ## returns list of n np arrays used as CV folds
 
 
 def precision_recall(wifi, cm):
@@ -68,7 +70,7 @@ def evaluate(test_data, learned_tree):
 
     classification_rate = np.trace(confusion_matrix) / total_size
 
-    print('Classification rate: {}%'.format(classification_rate * 100))
+  ##  print('Classification rate: {}%'.format(classification_rate * 100))
     measures = [classification_rate]
 
     for i in wifi_labels:
@@ -80,7 +82,7 @@ def evaluate(test_data, learned_tree):
 
         measures.append(wifi_measures)
 
-    print(confusion_matrix)
+##    print(confusion_matrix)
     ## number_incorrect_predictions = set.difference(set(test_data), set(tree_predictions))
 
 
@@ -91,7 +93,9 @@ def cross_validation(data):
     takes some data and performs corss validation to iterate over test and training data and train different trees to return the average performance
     '''
 
-    divided_data = divide_data(data)
+    divided_data = divide_data(data, 10)
+
+    all_10_measures = []
 
     for i in range(10):
         test_data = divided_data[i]
@@ -102,7 +106,15 @@ def cross_validation(data):
 
         training_data = np.array(divided_data[i+1 % 10 : i]).flatten()
 
+        tree = create_tree(training_data)
 
+        learned_tree = run_learning(tree)
+
+        measures = evaluate(test_data, learned_tree)
+
+        all_10_measures.append(measures)
+
+    print(all_10_measures)
 
 if __name__ == "__main__":
     cross_validation(clean_dataset)
