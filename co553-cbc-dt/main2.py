@@ -106,6 +106,7 @@ if __name__ == '__main__':
     # print(clean_dataset)
     tree = create_tree(clean_dataset, max_depth)
 
+
     run_learning(tree)
 
     # print(clean_dataset[500])
