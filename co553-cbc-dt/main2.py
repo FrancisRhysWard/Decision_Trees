@@ -54,7 +54,7 @@ def run_learning(tree):
         if old_node_list == tree.node_list:
             new_nodes_being_added = False
 
-
+    return tree
     # print_results()
 
 

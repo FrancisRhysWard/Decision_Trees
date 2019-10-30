@@ -29,8 +29,9 @@ def cross_validation(data):
 
 
          training_data = np.concatenate(divided_data[i+1:] + divided_data[0:i])
-         print(f' training data  {training_data}, type {type(training_data)}, length {len(training_data)}, shape {training_data.shape}')
+         # print(f' training data  {training_data}, type {type(training_data)}, length {len(training_data)}, shape {training_data.shape}')
          tree = create_tree(training_data, 10)
+
 
          learned_tree = run_learning(tree)
 
@@ -38,7 +39,8 @@ def cross_validation(data):
 
          all_10_measures.append(measures)
 
-     print(all_10_measures)
+     for thing in all_10_measures:
+         print(thing)
 
 if __name__ == "__main__":
      cross_validation(clean_dataset)
