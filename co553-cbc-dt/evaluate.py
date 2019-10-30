@@ -1,7 +1,8 @@
 import numpy as np
 from random import choice, randint
+from predict import predict
 
-clean_dataset = np.loadtxt("./co553-cbc-dt/wifi_db/clean_dataset.txt")
+clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 
 ##noisy_data = np.loadtxt("./co553-cbc-dt/wifi_db/noisy_dataset.txt")
 
@@ -30,6 +31,7 @@ def precision_recall(wifi, cm):
 
     return precision, recall
 
+
 def F1(p, r):
     '''
     takes the precision and recall and returns f1 measure
@@ -42,31 +44,43 @@ def evaluate(test_data, learned_tree):
     '''
     takes a test array and a learned tree and returns test measures
     '''
+
     total_size = len(test_data)
 
-    tree_predictions = ## should = test_data with actual labels replace with predictions
+    tree_predictions = []
+
+    test_data_to_predict = test_data.copy()
+
+
+    for sample in test_data_to_predict:
+        tree_predictions.append(predict(learned_tree, sample))  # should = test_data with actual labels replace with predictions
+
+    tree_predictions = np.array(tree_predictions)
 
     cm_dimensions = (4,4)
 
     confusion_matrix = np.zeros(cm_dimensions)
 
-    for sample in range(total_size):
-        confusion_matrix[test_data[sample[-1] - 1]][tree_predictions[sample[-1] - 1] += 1 ## adds one to corect col/row of cm
+    # Add all results to confusion matrix
+    for sample_actual, sample_predicted in zip(test_data, tree_predictions):
+
+        confusion_matrix[int(sample_actual[-1])-1][int(sample_predicted[-1]) - 1] += 1
 
     classification_rate = np.trace(confusion_matrix) / total_size
 
+    print('Classification rate: {}%'.format(classification_rate * 100))
     measures = [classification_rate]
 
     for i in wifi_labels:
         wifi_measures = {}
         wifi_measures["label"] = i
-        wifi_measures["precision"] = precision_recall(i, cm)[0]
-        wifi_measures["recall"] = precision_recall(i, cm)[1]
-        wifi_measures["f1"] = F1(precision_recall(i, cm)[0], precision_recall(i, cm)[1])
+        wifi_measures["precision"] = precision_recall(i, confusion_matrix)[0]
+        wifi_measures["recall"] = precision_recall(i, confusion_matrix)[1]
+        wifi_measures["f1"] = F1(precision_recall(i, confusion_matrix)[0], precision_recall(i, confusion_matrix)[1])
 
         measures.append(wifi_measures)
 
-
+    print(confusion_matrix)
     ## number_incorrect_predictions = set.difference(set(test_data), set(tree_predictions))
 
 

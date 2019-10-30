@@ -1,6 +1,8 @@
 import numpy as np
 from tree import DecisionTree
 from random import choice, randint
+from predict import predict
+from evaluate import evaluate
 
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
@@ -37,9 +39,9 @@ def run_learning(tree):
         # Starting with last nodes
         # Run through each child in a layer
 
-        print('*' * 40)
-        print('Current layer #{} contains: {} elements'.format(len(tree.node_list), len(tree.node_list[-1])))
-        print('*' * 40)
+        # print('*' * 40)
+        # print('Current layer #{} contains: {} elements'.format(len(tree.node_list), len(tree.node_list[-1])))
+        # print('*' * 40)
 
         for child in tree.node_list[-1]:
             if len(child.dataset) == 0:
@@ -53,7 +55,7 @@ def run_learning(tree):
             new_nodes_being_added = False
 
 
-    print_results()
+    # print_results()
 
 
 def print_results():
@@ -65,6 +67,12 @@ def print_results():
             print("LAYER #{} ---> Node #{} has an attribute: {}"# with dataset of length: {}"
                 .format(tree.node_list.index(layer), layer.index(node), node.split_attribute[1][2:],node.dataset.shape))
 
+            # if tree.node_list.index(layer) < 5:
+            #     with open('layer-{}-node{}.csv'.format(tree.node_list.index(layer), layer.index(node)), 'w+') as file:
+            #         for line in node.dataset:
+            #
+            #             file.write(str(line) + '\n')
+
             # try:
             #     print("\t ---- Its children are {}".format(len(node.children)))
             # except:
@@ -74,7 +82,7 @@ def print_results():
             #     print(node.dataset)
 
             if len(set([sample[-1] for sample in node.dataset])) == 1:
-                print('This node has one single label!')
+                print('This node has one single label =======================================  {}'.format(node.dataset[0][-1]))
             #
             # if node.children == None:
             #     print('This node has no children!')
@@ -88,7 +96,23 @@ if __name__ == '__main__':
 
     max_depth = 10
 
-    # Create a tree
+    # import random
+    # # Create a tree
+    # build_dataset = []
+    # for i in range(len(clean_dataset)//50):
+    #     build_dataset.append(clean_dataset[random.randint(0, len(clean_dataset)-1)])
+    # build_dataset = np.array(build_dataset)
+
+    # print(clean_dataset)
     tree = create_tree(clean_dataset, max_depth)
 
     run_learning(tree)
+
+    # print(clean_dataset[500])
+
+    # Testing predict function
+    # predict(tree, clean_dataset[600])
+
+
+
+    evaluate(clean_dataset, tree)
