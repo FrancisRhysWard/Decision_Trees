@@ -3,8 +3,9 @@ from tree import DecisionTree
 from random import choice, randint
 from predict import predict
 from evaluate import evaluate
-from pruning import pruning
+from pruning import prune
 from prune_validate import prune_validation
+from create_tree import create_tree
 
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
@@ -13,9 +14,6 @@ data_size = len(clean_dataset)
 
 wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
 
-
-def create_tree(_dataset, _max_depth):
-    return DecisionTree(_dataset, _max_depth)
 
 
 def run_learning(tree):

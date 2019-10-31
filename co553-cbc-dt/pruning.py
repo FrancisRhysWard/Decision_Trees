@@ -1,7 +1,7 @@
 from evaluate import evaluate
 
 
-def pruning(tree, validation_data):
+def prune(tree, validation_data):
     '''
 
     :param tree: a built tree that needs a haircut

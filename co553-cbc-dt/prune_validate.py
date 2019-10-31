@@ -1,8 +1,8 @@
 import numpy as np
 from tree import DecisionTree
 from evaluate import *
-from main2 import create_tree
-from pruning import pruning
+from create_tree import create_tree
+from pruning import prune
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 
