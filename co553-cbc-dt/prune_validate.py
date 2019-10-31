@@ -1,12 +1,12 @@
 import numpy as np
 from tree import DecisionTree
 from evaluate import *
-from main2 import *
+from main2 import create_tree
+from pruning import pruning
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 
 ##noisy_data = np.loadtxt("./co553-cbc-dt/wifi_db/noisy_dataset.txt")
-
 
 
 def prune_validation(data):
@@ -34,7 +34,7 @@ def prune_validation(data):
 
             ##prune tree on validation data
 
-            pruned_tree = tree
+            pruned_tree = prune(tree, validation_data)
 
             errors_on_this_test.append(1 - evaluate(test_data, pruned_tree)[0])
 

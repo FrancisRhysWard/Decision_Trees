@@ -4,6 +4,7 @@ from random import choice, randint
 from predict import predict
 from evaluate import evaluate
 from pruning import pruning
+from prune_validate import prune_validation
 
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
@@ -115,6 +116,8 @@ if __name__ == '__main__':
     # Testing predict function
     # predict(tree, clean_dataset[600])
 
-    evaluate(clean_dataset, tree)
+    prune_validation(clean_dataset)
 
-    pruning(tree, clean_dataset)
+    # evaluate(clean_dataset, tree)
+    #
+    # pruning(tree, clean_dataset)
