@@ -28,6 +28,9 @@ def precision_recall(wifi, cm):
     fp = cm.sum(0)[wifi - 1] - tp
     fn = cm.sum(1)[wifi - 1] -  tp
 
+    # if tp + fp == 0:
+    #     print(tp, fp)
+
     precision =  tp / (tp + fp)
     recall = tp / (tp + fn)
 
