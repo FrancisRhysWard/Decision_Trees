@@ -39,10 +39,25 @@ def cross_validation(data):
 
          all_10_measures.append(measures)
 
-     for thing in all_10_measures:
-         print(thing)
+     avg_measures = [0, {'label': 1, 'precision': 0, 'recall': 0, 'f1': 0}, {'label': 2, 'precision': 0, 'recall': 0, 'f1': 0}, {'label': 3, 'precision': 0, 'recall': 0, 'f1': 0}, {'label': 4, 'precision': 0, 'recall': 0, 'f1': 0}]
+
+     avg_measures[0] = sum([m[0] for m in all_10_measures])/len(all_10_measures)
+
+     for d in avg_measures[1:]:
+         for m in all_10_measures:
+             for d2 in m[1:]:
+                 if d['label'] == d2['label']:
+                     d['precision'] += d2['precision']/10
+                     d['recall'] += d2['recall']/10
+                     d['f1'] += d2['recall']/10
+
+     #values = [[d.values() for d in m[1:]] for m in all_10_measures]
+     #print(values)
+
+     return avg_measures
+
 
 if __name__ == "__main__":
-     cross_validation(clean_dataset)
+     print(cross_validation(clean_dataset))
 
 
