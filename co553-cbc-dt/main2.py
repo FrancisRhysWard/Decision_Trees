@@ -3,6 +3,7 @@ from tree import DecisionTree
 from random import choice, randint
 from predict import predict
 from evaluate import evaluate
+from pruning import pruning
 
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
@@ -96,15 +97,15 @@ if __name__ == '__main__':
 
     max_depth = 10
 
-    # import random
-    # # Create a tree
-    # build_dataset = []
-    # for i in range(len(clean_dataset)//50):
-    #     build_dataset.append(clean_dataset[random.randint(0, len(clean_dataset)-1)])
-    # build_dataset = np.array(build_dataset)
+    import random
+    # Create a tree
+    build_dataset = []
+    for i in range(len(clean_dataset)//50):
+        build_dataset.append(clean_dataset[random.randint(0, len(clean_dataset)-1)])
+    build_dataset = np.array(build_dataset)
 
     # print(clean_dataset)
-    tree = create_tree(clean_dataset, max_depth)
+    tree = create_tree(build_dataset, max_depth)
 
 
     run_learning(tree)
@@ -114,6 +115,6 @@ if __name__ == '__main__':
     # Testing predict function
     # predict(tree, clean_dataset[600])
 
-
-
     evaluate(clean_dataset, tree)
+
+    pruning(tree, clean_dataset)

@@ -38,6 +38,8 @@ class Node():
         # Tuple --> (feature, split value)
         self.split_attribute = split_attribute
 
+        self.label = None
+
 
     def find_split(self):
         '''
