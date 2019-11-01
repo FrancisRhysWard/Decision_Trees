@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d27d9b45-0294-49ef-a028-3a9f0173cd56" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co553-cbc-dt/create_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/create_tree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co553-cbc-dt/evaluate.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/evaluate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co553-cbc-dt/main2.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/main2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co553-cbc-dt/pruning.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/pruning.py" afterDir="false" />
-    </list>
+    <list default="true" id="d27d9b45-0294-49ef-a028-3a9f0173cd56" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/co553-cbc-dt/prune_validate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="77" column="32" lean-forward="true" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+            <state relative-caret-position="388">
+              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#309#1759#0" />
@@ -221,15 +214,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1034" extended-state="7" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1920" height="1034" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14496574" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44680852" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44680852" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -314,8 +306,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/co553-cbc-dt/prune_validate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="77" column="32" lean-forward="true" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+        <state relative-caret-position="388">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#309#1759#0" />
