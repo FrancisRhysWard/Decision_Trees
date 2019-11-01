@@ -49,6 +49,8 @@ class Node():
         # Assign children
         self.children = children
 
+        self.coord = [0,0]
+
         # Tuple --> (feature, split value)
         self.split_attribute = split_attribute
 
