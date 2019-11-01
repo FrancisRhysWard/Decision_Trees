@@ -2,11 +2,22 @@ from tree import DecisionTree
 
 
 def create_tree(_dataset, _max_depth):
+    '''
+
+    :param _dataset: dataset that will be assigned to the root of the tree
+    :param _max_depth: REMOVE THIS
+    :return: return a DecisionTree object (not trained)
+    '''
     return DecisionTree(_dataset, _max_depth)
 
 
 
 def run_learning(tree):
+    '''
+    Perform the learning process
+    :param tree: tree object
+    :return: trained tree object
+    '''
 
     # Take starting node
     start_node = tree.start_node
@@ -25,14 +36,10 @@ def run_learning(tree):
     while new_nodes_being_added:
 
         old_node_list = tree.node_list.copy()
+
         # Repeat for each node (excluding the starting node)
         # Starting with last nodes
         # Run through each child in a layer
-
-        # print('*' * 40)
-        # print('Current layer #{} contains: {} elements'.format(len(tree.node_list), len(tree.node_list[-1])))
-        # print('*' * 40)
-
         for child in tree.node_list[-1]:
             if len(child.dataset) == 0:
                 continue
@@ -45,4 +52,3 @@ def run_learning(tree):
             new_nodes_being_added = False
 
     return tree
-    # print_results()

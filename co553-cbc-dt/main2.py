@@ -8,16 +8,15 @@ from prune_validate import prune_validation
 from create_tree import create_tree, run_learning
 
 
-clean_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
-
-data_size = len(clean_dataset)
-
-wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
+# Import the data
+clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
+noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
 
 
-
-
-def print_results():
+def print_results(tree):
+    '''
+    Prints out useful information about the structure of a trained tree
+    '''
 
     for layer in tree.node_list:
         print('\n\n')
@@ -26,26 +25,20 @@ def print_results():
             print("LAYER #{} ---> Node #{} has an attribute: {}"# with dataset of length: {}"
                 .format(tree.node_list.index(layer), layer.index(node), node.split_attribute[1][2:],node.dataset.shape))
 
-            # if tree.node_list.index(layer) < 5:
-            #     with open('layer-{}-node{}.csv'.format(tree.node_list.index(layer), layer.index(node)), 'w+') as file:
-            #         for line in node.dataset:
-            #
-            #             file.write(str(line) + '\n')
-
-            # try:
-            #     print("\t ---- Its children are {}".format(len(node.children)))
-            # except:
-            #     pass
-            # # If attribute is None, show the dataset
-            # if None in node.split_attribute[1][2:]:
-            #     print(node.dataset)
+            try:
+                print("\t ---- Its children are {}".format(len(node.children)))
+            except:
+                pass
+            # If attribute is None, show the dataset
+            if None in node.split_attribute[1][2:]:
+                print(node.dataset)
 
             if len(set([sample[-1] for sample in node.dataset])) == 1:
                 print('This node has one single label =======================================  {}'.format(node.dataset[0][-1]))
-            #
-            # if node.children == None:
-            #     print('This node has no children!')
-            #     print(node.dataset)
+
+            if node.children == None:
+                print('This node has no children!')
+                print(node.dataset)
 
             sum += node.dataset.shape[0]
         print("\t ---- Total shape summation: 2000 = {}".format(sum))
@@ -53,28 +46,4 @@ def print_results():
 
 if __name__ == '__main__':
 
-    max_depth = 10
-
-    # import random
-    # # Create a tree
-    # build_dataset = []
-    # for i in range(len(clean_dataset)//50):
-    #     build_dataset.append(clean_dataset[random.randint(0, len(clean_dataset)-1)])
-    # build_dataset = np.array(build_dataset)
-
-    # print(clean_dataset)
-    # tree = create_tree(clean_dataset, max_depth)
-
-
-    # run_learning(tree)
-
-    # print(clean_dataset[500])
-
-    # Testing predict function
-    # predict(tree, clean_dataset[600])
-
     print(prune_validation(clean_dataset))
-
-    # evaluate(clean_dataset, tree)
-    #
-    # pruning(tree, clean_dataset)
