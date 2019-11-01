@@ -5,24 +5,38 @@ import find_split
 
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
+noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
 
+# Initialise the WHAT?
 data_size = len(clean_dataset)
-
 wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
 
 
 
 class Node():
     '''
-
-
+    Class Node (leaf is a node with no children)
     '''
+
     def __init__(self, tree, dataset, parent, children=list(), split_attribute=None):
+        '''
+
+        :param tree: tree object to which the object belongs        (object DecisionTree)
+        :param dataset: dataset that is contained within the node   (numpy array)
+        :param parent: parent node                                  (object Node)
+        :param children: list of children nodes                     (list of Node objects)
+        :param split_attribute: tuple (Wifi attribute, Split value) (tuple)
+        '''
 
         self.tree = tree
 
-        # Initialise dataset and the parent
+        # Initialise dataset
         self.dataset = dataset
+
+        # The predominant label in the dataset
+        self.label = None
+
+        # Initalise node parent
         self.parent = parent
 
         # Depth is initialised automatically given the parent node
@@ -32,13 +46,12 @@ class Node():
         else:
             self.depth = self.parent.depth + 1
 
-        # Other attributes
+        # Assign children
         self.children = children
 
         # Tuple --> (feature, split value)
         self.split_attribute = split_attribute
 
-        self.label = None
 
 
     def find_split(self):

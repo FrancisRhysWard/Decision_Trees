@@ -5,8 +5,9 @@ from create_tree import create_tree, run_learning
 from pruning import prune
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
-
 noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
+
+
 
 def print_results(tree):
 
@@ -43,47 +44,42 @@ def print_results(tree):
 
 
 def prune_validation(data):
-      '''
-      prunes and evaluates
-      '''
 
-      divided_data = divide_data(data, 10) # shuffles then divides data
+    # Shuffle and divide data
+    divided_data = divide_data(data, 10) # shuffles then divides data
+    avg_errors = []
 
-      avg_errors = []
+    for i in range(10):
 
-      for i in range(10):
+        # Split the test data
         test_data = divided_data[i]  ##  loop over test data sets
-
         errors_on_this_test = []
 
         for j in range(1,10):  ## loop over validation and training
 
+            # Split the data
             validation_data = divided_data[(i+j) % 10]
-
             training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all() and not (a==validation_data).all()])
 
-            # print(f' training data  {training_data}, type {type(training_data)}, length                  {len(training_data)}, shape {training_data.shape}')
-
+            # Train a tree
             tree = create_tree(training_data, 10)
             run_learning(tree)
             tree_copy = create_tree(training_data, 10)
             run_learning(tree_copy)
 
-            ##prune tree on validation data
-
-            # print('PRUNING #{}x{}'.format(i,j))
-            # pruned_tree = tree
+            # Prune tree on validation data
             pruned_tree = prune(tree, tree_copy, validation_data)
             print(evaluate(clean_dataset, pruned_tree))
             errors_on_this_test.append(1 - evaluate(test_data, pruned_tree)[0])
 
+        # Collect the statistics
         avg_err_on_this_test = sum(errors_on_this_test) / len(errors_on_this_test)
         avg_errors.append(avg_err_on_this_test)
-      total_error = sum(avg_errors) / len(avg_errors)
 
-      return total_error
+        total_error = sum(avg_errors) / len(avg_errors)
 
-            ##
+    return total_error
+
 
 if __name__ == "__main__":
     print(prune_validation(clean_dataset))
