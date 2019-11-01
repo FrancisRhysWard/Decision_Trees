@@ -1,4 +1,4 @@
-
+from collections import Counter
 
 def predict(tree, sample):
 
@@ -10,31 +10,28 @@ def predict(tree, sample):
 
         attribute, value = node.split_attribute[1][2:]
 
-        # print('Current node has attribute {} with value {}'.format(attribute, value))
-
         # If eg. X[0] < 30
         if sample[attribute-1] <= value:
-            # print('<----<----<----<--')
             node = node.children[0]  # left child
 
         # If eg. X[0] >= 30
         else:
-            # print('>---->---->---->--')
             node = node.children[1]  # right child
 
 
-    # Print the label once you are at a leaf
-    # print('Final node dataset: {}'.format(node.dataset))
-    # print('Classified as: {}'.format(node.dataset[0][-1]))
-
     # Assign the predicted label
-    old_label = sample[-1]
-    sample[-1] = node.dataset[0][-1]
-    new_label = sample[-1]
+    node_dataset_labels = [sample[-1] for sample in node.dataset]
+    _set_of_labels = set(node_dataset_labels)
+    # print(node_dataset_labels)
+    label_occurences = []
 
-    # if new_label != old_label:
-    #     print('INCORRECTLY CLASSIFIED')
+    for element in _set_of_labels:
+        label_occurences.append((element, node_dataset_labels.count(element)))
 
-    if sample[-1] == node.dataset[0][-1]:
-        return sample
+    # print(label_occurences)
+
+    predominant_label = max(label_occurences, key=lambda x: x[1])[0]
+    sample[-1] = predominant_label
+
+    return sample
 

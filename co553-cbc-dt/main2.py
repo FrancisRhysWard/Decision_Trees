@@ -3,59 +3,18 @@ from tree import DecisionTree
 from random import choice, randint
 from predict import predict
 from evaluate import evaluate
+from pruning import prune
+from prune_validate import prune_validation
+from create_tree import create_tree, run_learning
 
 
-clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
+clean_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
 
 data_size = len(clean_dataset)
 
 wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
 
 
-def create_tree(_dataset, _max_depth):
-    return DecisionTree(_dataset, _max_depth)
-
-
-def run_learning(tree):
-
-    # Take starting node
-    start_node = tree.start_node
-
-    # Find the perfect split
-    start_node.find_split()
-
-    # Split the data
-    start_node.split_data()
-
-    # Create children
-    start_node.create_children()
-
-    # Run a loop while new nodes are being added
-    new_nodes_being_added = True
-    while new_nodes_being_added:
-
-        old_node_list = tree.node_list.copy()
-        # Repeat for each node (excluding the starting node)
-        # Starting with last nodes
-        # Run through each child in a layer
-
-        # print('*' * 40)
-        # print('Current layer #{} contains: {} elements'.format(len(tree.node_list), len(tree.node_list[-1])))
-        # print('*' * 40)
-
-        for child in tree.node_list[-1]:
-            if len(child.dataset) == 0:
-                continue
-
-            child.find_split()
-            child.split_data()
-            child.create_children()
-
-        if old_node_list == tree.node_list:
-            new_nodes_being_added = False
-
-    return tree
-    # print_results()
 
 
 def print_results():
@@ -104,16 +63,18 @@ if __name__ == '__main__':
     # build_dataset = np.array(build_dataset)
 
     # print(clean_dataset)
-    tree = create_tree(clean_dataset, max_depth)
+    # tree = create_tree(clean_dataset, max_depth)
 
 
-    run_learning(tree)
+    # run_learning(tree)
 
     # print(clean_dataset[500])
 
     # Testing predict function
     # predict(tree, clean_dataset[600])
 
+    print(prune_validation(clean_dataset))
 
-
-    evaluate(clean_dataset, tree)
+    # evaluate(clean_dataset, tree)
+    #
+    # pruning(tree, clean_dataset)

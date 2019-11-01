@@ -28,6 +28,9 @@ def precision_recall(wifi, cm):
     fp = cm.sum(0)[wifi - 1] - tp
     fn = cm.sum(1)[wifi - 1] -  tp
 
+    # if tp + fp == 0:
+    #     print(tp, fp)
+
     precision =  tp / (tp + fp)
     recall = tp / (tp + fn)
 
@@ -70,7 +73,7 @@ def evaluate(test_data, learned_tree):
 
     classification_rate = np.trace(confusion_matrix) / total_size
 
-  ##  print('Classification rate: {}%'.format(classification_rate * 100))
+    # print('Classification rate: {}%'.format(classification_rate * 100))
     measures = [classification_rate]
 
     for i in wifi_labels:
@@ -82,7 +85,7 @@ def evaluate(test_data, learned_tree):
 
         measures.append(wifi_measures)
 
-##    print(confusion_matrix)
+    # print(confusion_matrix)
     ## number_incorrect_predictions = set.difference(set(test_data), set(tree_predictions))
 
 
