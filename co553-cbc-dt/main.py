@@ -46,11 +46,19 @@ def print_results(tree):
 
 if __name__ == '__main__':
 
-    tree = create_tree(clean_dataset, 10)
+    # tree = create_tree(clean_dataset, 10)
+    #
+    # learned_tree = run_learning(tree)
+    #
+    # print(evaluate(clean_dataset, learned_tree))
 
-    learned_tree = run_learning(tree)
 
-    print(evaluate(clean_dataset, learned_tree))
+    measures = prune_validation(clean_dataset)
+    rates = [rate[0] for rate in measures]
+    print(rates)
 
-
-    # print(prune_validation(clean_dataset))
+    # for splits_on_test in range(10):
+    #
+    #     for splits_on_validation in range(9):
+    # 
+    #         tempRates.append(measures90)
