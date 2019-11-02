@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.lines as lines
+from evaluate import *
+
 
 from tree import DecisionTree
 
@@ -10,10 +12,24 @@ from main2 import *
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 
-tree = create_tree(clean_dataset, 10)
 
+# Shuffle and divide data
+divided_data = divide_data(clean_dataset, 10) # shuffles then divides data
+i = 0
+j = 1
+
+# Split the test data
+test_data = divided_data[i]  ##  loop over test data sets
+
+# Split the data
+validation_data = divided_data[(i+j) % 10]
+training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all() and not (a==validation_data).all()])
+
+# Train a tree
+tree = create_tree(training_data, 10)
 run_learning(tree)
-
+tree_copy = create_tree(training_data, 10)
+run_learning(tree_copy)
 
 start_node = tree.start_node
 
@@ -24,10 +40,18 @@ width = 2000
 max_nodes_in_layer = max([len(layer) for layer in tree.node_list])
 
 for layer in tree.node_list:
-    for i,node in enumerate(layer):
+    for i, node in enumerate(layer):
         if node.children != None:
+<<<<<<< HEAD
             node.children[0].coord[0] = node.coord[0]  - width  #len(tree.node_list)/(tree.node_list.index(layer) +1)
             node.children[0].coord[1] = node.coord[1] - 20 # -1 depth
+=======
+            node.children[0].coord[0] = (node.coord[0]  - (len(tree.node_list)/(tree.node_list.index(layer) + 1)))# * 50 * (len(tree.node_list) - node.depth)
+            node.children[0].coord[1] = node.coord[1] - 5 # -1 depth
+
+            node.children[1].coord[0] = node.coord[0]  + len(tree.node_list)/(tree.node_list.index(layer) + 1)
+            node.children[1].coord[1] = node.coord[1] - 5 # -1 depth
+>>>>>>> 7eee82ca764a0fc035e765289b2ce8e0abea6638
 
             node.children[1].coord[0] = node.coord[0]  + width  #len(tree.node_list)/(tree.node_list.index(layer)+1)
             node.children[1].coord[1] = node.coord[1] - 20 # -1 depth
@@ -45,3 +69,31 @@ for layer in tree.node_list:
 
 plt.show()
 
+
+#
+# # Prune tree on validation data
+# pruned_tree = prune(tree, tree_copy, validation_data)
+#
+# max_nodes_in_layer = max([len(layer) for layer in pruned_tree.node_list])
+#
+# for layer in pruned_tree.node_list:
+#     for i,node in enumerate(layer):
+#         if node.children != None:
+#             node.children[0].coord[0] = node.coord[0]  - len(pruned_tree.node_list)/(pruned_tree.node_list.index(layer) + 1)
+#             node.children[0].coord[1] = node.coord[1] - 5 # -1 depth
+#
+#             node.children[1].coord[0] = node.coord[0]  + len(pruned_tree.node_list)/(pruned_tree.node_list.index(layer) + 1)
+#             node.children[1].coord[1] = node.coord[1] - 5 # -1 depth
+#
+#
+# for layer in pruned_tree.node_list:
+#     for node in layer:
+#         node_x = node.coord[0]
+#         node_y = node.coord[1]
+#         if node.children != None:
+#             for child in node.children:
+#                 xt = [node_x,  child.coord[0]]
+#                 yt = [node_y, child.coord[1]]
+#                 plt.plot(xt, yt)
+#
+# plt.show()
