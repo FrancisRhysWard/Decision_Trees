@@ -72,7 +72,7 @@ def prune(tree, pruned_tree, validation_data):
                     # Has accuracy increased?
                     if pruned_accuracy > current_accuracy:
 
-                        print('BEFORE {}  ----- >  AFTER {}'.format(current_accuracy, pruned_accuracy))
+                       # print('BEFORE {}  ----- >  AFTER {}'.format(current_accuracy, pruned_accuracy))
 
                         # Also Remove children from the current tree node_list
                         for current_tree_node in current_tree.node_list[layer_idx]:

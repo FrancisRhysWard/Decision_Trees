@@ -49,6 +49,8 @@ def prune_validation(data):
     divided_data = divide_data(data, 10) # shuffles then divides data
     avg_errors = []
 
+    all_90_measures = []
+
     for i in range(10):
 
         # Split the test data
@@ -69,8 +71,14 @@ def prune_validation(data):
 
             # Prune tree on validation data
             pruned_tree = prune(tree, tree_copy, validation_data)
-            print(evaluate(clean_dataset, pruned_tree))
+            #print(evaluate(clean_dataset, pruned_tree))
             errors_on_this_test.append(1 - evaluate(test_data, pruned_tree)[0])
+
+            measures = evaluate(test_data, pruned_tree)
+
+            all_90_measures.append(measures)
+
+
 
         # Collect the statistics
         avg_err_on_this_test = sum(errors_on_this_test) / len(errors_on_this_test)
@@ -78,10 +86,19 @@ def prune_validation(data):
 
         total_error = sum(avg_errors) / len(avg_errors)
 
-    return total_error
+    return all_90_measures
 
 
 if __name__ == "__main__":
-    print(prune_validation(clean_dataset))
+    pruned_results = prune_validation(clean_dataset)
+
+    av_acc, av_cm = get_avg_stats(pruned_results)
+
+    print(av_acc, av_cm)
+
+    for room in room_labels:
+        p = precision_recall(room, av_cm)[0]
+        r = precision_recall(room, av_cm)[1]
+        print(f"Room label = {room}, precision = {p}, recall = {r}, F1 = {F1(p, r)}")
 
 
