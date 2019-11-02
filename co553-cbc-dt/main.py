@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from tree import DecisionTree
 from random import choice, randint
 from predict import predict
@@ -64,15 +64,17 @@ if __name__ == '__main__':
         temp.append(rates[j])
         if j % 9 == 0:
             test_rates.append(temp)
+            temp = []
 
     print(test_rates)
 
-    # fig, axs = plt.subplots(1, 2, sharey=True, tight_layout=True)
-    #
-    # # We can set the number of bins with the `bins` kwarg
-    # for
-    # axs[0].hist(x)
-    # axs[1].hist(y)
+    axs = 3
+    fig, axs = plt.subplots(1, axs, sharey=True, tight_layout=True)
+
+    # We can set the number of bins with the `bins` kwarg
+    for i in range(axs):
+        axs[i].hist(test_rates[i])
+
 
 
     # for splits_on_test in range(10):
