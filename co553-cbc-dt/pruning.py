@@ -81,7 +81,7 @@ def prune(tree, pruned_tree, validation_data):
 
                                 if current_tree_node.children[0].children is None and current_tree_node.children[1].children is None:
 
-                                    # print('Removing from CURRENT TREE')
+                                    print('Pruning from layer {}, node {}'.format(layer_idx, node_idx))
                                     # Delete the same node's children in the current tree
                                     current_tree.node_list[layer_idx + 1].remove(current_tree_node.children[0])
                                     current_tree.node_list[layer_idx + 1].remove(current_tree_node.children[1])
