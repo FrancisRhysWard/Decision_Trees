@@ -53,6 +53,19 @@ if __name__ == '__main__':
     #
     # print(evaluate(clean_dataset, learned_tree))
 
+    print('='*30)
+    print('Some initial data stats.')
+
+    print('Clean dataset has ')
+    print('\t Mean: {}'.format([np.mean(column) for column in clean_dataset[:0,7]]))
+    print('\t Covariance: {}'.format(np.covariance()))
+
+    print('Noisy dataset has')
+    print('\t Mean: {}')
+    print('\t Covariance: {}')
+
+
+
 
     measures = prune_validation(clean_dataset)
     rates = [rate[0] for rate in measures]
