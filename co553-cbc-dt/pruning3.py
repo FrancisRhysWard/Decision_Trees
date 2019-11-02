@@ -21,8 +21,9 @@ def prune(tree, pruned_tree, validation_data):
     # current_accuracy = evaluate(validation_data, current_tree)[0]
     while not stopPruning:
 
-        current_accuracy = evaluate(validation_data, current_tree)[0]
         print(' ====================================== STARTING OVER ======================================')
+
+        current_accuracy = evaluate(validation_data, pruned_tree)[0]
 
         # Starting with the last layer
         for layer_idx, layer in enumerate(node_list[::-1]):
@@ -73,13 +74,14 @@ def prune(tree, pruned_tree, validation_data):
 
                         print('BEFORE {}  ----- >  AFTER {}'.format(current_accuracy, pruned_accuracy))
 
-                        pruned_accuracy = evaluate(validation_data, pruned_tree)[0]
+                        current_accuracy = evaluate(validation_data, pruned_tree)[0]
                         
                     else:
                         # Revert back the changes
                         for child in children_under_consideration:
                             pruned_tree.node_list[layer_idx + 1].append(child)
                         node.children = children_under_consideration
+                        node_list = pruned_tree.node_list
                         # print('Reverting: \n {} \n'.format(pruned_tree.node_list))
                         print('Reverting children: {} and {}'.format(node.children[0].id, node.children[1].id))
 
@@ -93,8 +95,4 @@ def prune(tree, pruned_tree, validation_data):
                     continue
 
 
-            if reassignCurrentTree is True:
-                break
-
-
-    return current_tree
+    return pruned_tree

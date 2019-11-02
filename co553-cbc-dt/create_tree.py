@@ -12,7 +12,7 @@ def create_tree(_dataset, _max_depth):
 
 
 
-def run_learning(tree):
+def decision_tree_learning(tree):
     '''
     Perform the learning process
     :param tree: tree object

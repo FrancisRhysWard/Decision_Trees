@@ -6,7 +6,7 @@ from predict import predict
 from evaluate import evaluate, divide_data
 from pruning import prune
 from prune_validate import prune_validation
-from create_tree import create_tree, run_learning
+from create_tree import create_tree, decision_tree_learning
 
 
 # Import the data
@@ -61,44 +61,8 @@ def print_results(tree):
 
 if __name__ == '__main__':
 
-    # tree = create_tree(noisy_dataset, 10)
-    #
-    # learned_tree = run_learning(tree)
-<<<<<<< HEAD
-    #
-    # print(evaluate(clean_dataset, learned_tree))
-
-    print('='*30)
-    print('Some initial data stats.')
-
-    print('Clean dataset has ')
-    print('\t Mean: {}'.format([np.mean(column) for column in clean_dataset[:0,7]]))
-    print('\t Covariance: {}'.format(np.covariance()))
-
-    print('Noisy dataset has')
-    print('\t Mean: {}')
-    print('\t Covariance: {}')
 
 
-
-=======
->>>>>>> fd52545a0ddd3be39b343ca895496b5f23c09774
-
-
-    #
-    # print(evaluate(clean_dataset, learned_tree))
-
-    # divided_data = divide_data(noisy_dataset, 10)
-
-    # i=3
-    # test_data = divided_data[i]
-    #
-    # training_data = np.concatenate([a for a in divided_data if not (a == test_data).all()])
-    #
-    # tree = create_tree(noisy_dataset, 10)
-    # run_learning(tree)
-    #
-    # print_results(tree)
 
     prune_validation(noisy_dataset)
 

@@ -27,9 +27,9 @@ training_data = np.concatenate([ a for a in divided_data if not (a==test_data).a
 
 # Train a tree
 tree = create_tree(training_data, 10)
-run_learning(tree)
+decision_tree_learning(tree)
 tree_copy = create_tree(training_data, 10)
-run_learning(tree_copy)
+decision_tree_learning(tree_copy)
 
 start_node = tree.start_node
 

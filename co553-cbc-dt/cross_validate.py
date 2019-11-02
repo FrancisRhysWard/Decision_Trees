@@ -33,7 +33,7 @@ def cross_validation(data):
          tree = create_tree(training_data, 10)
 
 
-         learned_tree = run_learning(tree)
+         learned_tree = decision_tree_learning(tree)
 
          measures = evaluate(test_data, learned_tree)
 

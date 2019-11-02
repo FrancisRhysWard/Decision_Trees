@@ -1,8 +1,8 @@
 import numpy as np
 from tree import DecisionTree
 from evaluate import *
-from create_tree import create_tree, run_learning
-from pruning2 import prune
+from create_tree import create_tree, decision_tree_learning
+from pruning3 import prune
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
@@ -66,9 +66,9 @@ def prune_validation(data):
 
             # Train a tree
             tree = create_tree(training_data, 10)
-            run_learning(tree)
+            decision_tree_learning(tree)
             tree_copy = create_tree(training_data, 10)
-            run_learning(tree_copy)
+            decision_tree_learning(tree_copy)
             # print('Unpruned tree has {} layers.'.format(len(tree.node_list)))
 
             # Error on unpruned tree
