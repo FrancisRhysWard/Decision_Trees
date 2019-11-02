@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib as plt
 from tree import DecisionTree
 from random import choice, randint
 from predict import predict
@@ -56,9 +57,26 @@ if __name__ == '__main__':
     measures = prune_validation(clean_dataset)
     rates = [rate[0] for rate in measures]
     print(rates)
+    test_rates = []
+    temp = []
+    j = 0
+    for j in range(90):
+        temp.append(rates[j])
+        if j % 9 == 0:
+            test_rates.append(temp)
+
+    print(test_rates)
+
+    # fig, axs = plt.subplots(1, 2, sharey=True, tight_layout=True)
+    #
+    # # We can set the number of bins with the `bins` kwarg
+    # for
+    # axs[0].hist(x)
+    # axs[1].hist(y)
+
 
     # for splits_on_test in range(10):
     #
     #     for splits_on_validation in range(9):
-    # 
+    #
     #         tempRates.append(measures90)
