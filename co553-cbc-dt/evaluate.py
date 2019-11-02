@@ -1,7 +1,7 @@
 import numpy as np
 from random import choice, randint
 from predict import predict
-from create_tree import create_tree, run_learning
+from create_tree import create_tree, decision_tree_learning
 
 
 
@@ -111,7 +111,7 @@ def cross_validation(data):
 
         tree = create_tree(training_data, 2)
 
-        learned_tree = run_learning(tree)
+        learned_tree = decision_tree_learning(tree)
 
         measures = evaluate(test_data, learned_tree)
 

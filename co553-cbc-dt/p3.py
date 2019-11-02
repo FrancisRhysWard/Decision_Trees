@@ -27,40 +27,13 @@ training_data = np.concatenate([ a for a in divided_data if not (a==test_data).a
 
 # Train a tree
 tree = create_tree(training_data, 10)
-run_learning(tree)
+decision_tree_learning(tree)
 tree_copy = create_tree(training_data, 10)
-run_learning(tree_copy)
+decision_tree_learning(tree_copy)
 
 start_node = tree.start_node
 
 width = 2000
-
-#print(tree.node_list)
-
-# max_nodes_in_layer = max([len(layer) for layer in tree.node_list])
-#
-# for layer_idx, layer in enumerate(tree.node_list):
-#     width = 1/len(layer)
-#     for i, node in enumerate(layer):
-#         if node.children != None:
-#             node.children[0].coord[0] = node.coord[0]  - width  #len(tree.node_list)/(tree.node_list.index(layer) +1)
-#             node.children[0].coord[1] = node.coord[1] - 20 # -1 depth
-#             node.children[1].coord[0] = node.coord[0]  + width  #len(tree.node_list)/(tree.node_list.index(layer)+1)
-#             node.children[1].coord[1] = node.coord[1] - 20 # -1 depth
-#
-# for layer in tree.node_list:
-#     for node in layer:
-#         node_x = node.coord[0]
-#         node_y = node.coord[1]
-#         if node.children != None:
-#             for child in node.children:
-#                 xt = [node_x,  child.coord[0]]
-#                 yt = [node_y, child.coord[1]]
-#                 plt.plot(xt, yt)
-#
-# plt.show()
-
-
 
 
 # WORKING SOLUTION
@@ -88,6 +61,7 @@ for layer in tree.node_list:
 
 plt.show()
 
+<<<<<<< HEAD
 
 # # Prune tree on validation data
 # pruned_tree = prune(tree, tree_copy, validation_data)
@@ -139,3 +113,5 @@ for layer in tree.node_list:
                 plt.plot(xt, yt)
 plt.show()
 
+=======
+>>>>>>> 944c3015698fa68a009b82c8789eff4bf9455460
