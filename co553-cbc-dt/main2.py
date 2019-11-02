@@ -46,4 +46,11 @@ def print_results(tree):
 
 if __name__ == '__main__':
 
-    print(prune_validation(clean_dataset))
+    tree = create_tree(clean_dataset, 10)
+
+    learned_tree = run_learning(tree)
+
+    print(evaluate(clean_dataset, learned_tree))
+
+
+    # print(prune_validation(clean_dataset))
