@@ -17,6 +17,8 @@ run_learning(tree)
 
 start_node = tree.start_node
 
+width = 2000
+
 #print(tree.node_list)
 
 max_nodes_in_layer = max([len(layer) for layer in tree.node_list])
@@ -24,12 +26,12 @@ max_nodes_in_layer = max([len(layer) for layer in tree.node_list])
 for layer in tree.node_list:
     for i,node in enumerate(layer):
         if node.children != None:
-            node.children[0].coord[0] = node.coord[0]  - len(tree.node_list)/(tree.node_list.index(layer) +1)
-            node.children[0].coord[1] = node.coord[1] - 5 # -1 depth
+            node.children[0].coord[0] = node.coord[0]  - width  #len(tree.node_list)/(tree.node_list.index(layer) +1)
+            node.children[0].coord[1] = node.coord[1] - 20 # -1 depth
 
-            node.children[1].coord[0] = node.coord[0]  + len(tree.node_list)/(tree.node_list.index(layer)+1)
-            node.children[1].coord[1] = node.coord[1] - 5 # -1 depth
-
+            node.children[1].coord[0] = node.coord[0]  + width  #len(tree.node_list)/(tree.node_list.index(layer)+1)
+            node.children[1].coord[1] = node.coord[1] - 20 # -1 depth
+    width = width * 0.5
 
 for layer in tree.node_list:
     for node in layer:
