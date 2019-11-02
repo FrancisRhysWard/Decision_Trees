@@ -67,7 +67,9 @@ def split(S, wifi_index):
 
         values = [sample[wifi_index] for sample in S]
 
-        mean_split_value = sum(values) / size
+        #mean_split_value = sum(values) / size
+
+        mean_split_value = np.median(values)
 
         # mean_split_value = values[j]
 

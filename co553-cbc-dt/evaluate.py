@@ -70,8 +70,10 @@ def evaluate(test_data, learned_tree):
 
     classification_rate = np.trace(confusion_matrix) / total_size
 
+    max_depth = len(learned_tree.node_list)
+
     # print('Classification rate: {}%'.format(classification_rate * 100))
-    measures = [classification_rate, confusion_matrix]
+    measures = [classification_rate, confusion_matrix, max_depth]
 
     for i in room_labels:
         room_measures = {}
@@ -115,6 +117,8 @@ def cross_validation(data):
 
         all_10_measures.append(measures)
 
+        print(measures[2])
+
     return all_10_measures
 
 
@@ -125,8 +129,10 @@ def get_avg_stats(cv):
 
     avg_cm = sum([measure[1] for measure in cv])/len(cv)
 
+    avg_depth = sum([measure[2] for measure in cv])/len(cv)
 
-    return avg_acc, avg_cm
+
+    return avg_acc, avg_cm, avg_depth
 
 
 if __name__ == "__main__":
@@ -136,11 +142,13 @@ if __name__ == "__main__":
     clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
     #print(cross_validation(clean_dataset))
 
-    av_acc, av_cm = get_avg_stats(cross_validation(clean_dataset))
+    av_acc, av_cm, av_depth = get_avg_stats(cross_validation(noisy_dataset))
+
+    print(av_acc, av_depth, av_cm)
 
     for room in room_labels:
         p = precision_recall(room, av_cm)[0]
         r = precision_recall(room, av_cm)[1]
-        print(f"Room label = {room}, precision = {p}, recall = {r}, F1 = {F1(p, r)}")
-
+        #print(f"Room Lable = {room} & precision = {round(p,4)} & recall = {round(r,4)} & F1 = {round(F1(p, r),4)} \\\\")
+        print(f"{room} & {round(p,4)} &  {round(r,4)} &  {round(F1(p, r),4)} \\\\")
 

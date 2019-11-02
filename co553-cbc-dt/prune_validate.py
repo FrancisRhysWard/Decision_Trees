@@ -92,13 +92,15 @@ def prune_validation(data):
 if __name__ == "__main__":
     pruned_results = prune_validation(clean_dataset)
 
-    av_acc, av_cm = get_avg_stats(pruned_results)
+    av_acc, av_cm, av_depth = get_avg_stats(pruned_results)
 
-    print(av_acc, av_cm)
+    print(av_acc, av_depth, av_cm)
 
     for room in room_labels:
         p = precision_recall(room, av_cm)[0]
         r = precision_recall(room, av_cm)[1]
-        print(f"Room label = {room}, precision = {p}, recall = {r}, F1 = {F1(p, r)}")
 
+        #print(f"Room Lable = {room} & precision = {round(p,4)} & recall = {round(r,4)} & F1 = {round(F1(p, r),4)} \\\\")
+
+        print(f"{room} & {round(p,4)} &  {round(r,4)} &  {round(F1(p, r),4)} \\\\")
 
