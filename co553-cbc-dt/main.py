@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
 
 
-    prune_validation(noisy_dataset)
+    print(prune_validation(noisy_dataset))
 
     # measures, unpruned_measures = prune_validation(clean_dataset)
     # rates = [rate[0] for rate in measures]

@@ -21,7 +21,7 @@ def prune(tree, pruned_tree, validation_data):
     # current_accuracy = evaluate(validation_data, current_tree)[0]
     while not stopPruning:
 
-        print(' ====================================== STARTING OVER ======================================')
+        # print(' ====================================== STARTING OVER ======================================')
 
         current_accuracy = evaluate(validation_data, pruned_tree)[0]
 
@@ -31,7 +31,7 @@ def prune(tree, pruned_tree, validation_data):
             # layer_idx indicates the index of the current layer in consideration
             layer_idx = len(node_list) - layer_idx - 1
 
-            print('---------------  LAYER {}  -----------------'.format(layer_idx))
+            # print('---------------  LAYER {}  -----------------'.format(layer_idx))
 
             if layer_idx == 0:
                 stopPruning = True
@@ -41,7 +41,7 @@ def prune(tree, pruned_tree, validation_data):
 
                 node_idx = len(layer) - node_idx - 1
 
-                print('Node_idx = {}'.format(node_idx))
+                # print('Node_idx = {}'.format(node_idx))
 
                 # If a node has no children - cannot prune - continue
                 if node.children is None:
@@ -70,9 +70,9 @@ def prune(tree, pruned_tree, validation_data):
                     pruned_accuracy = evaluate(validation_data, pruned_tree)[0]
 
                     # Has accuracy increased?
-                    if pruned_accuracy > current_accuracy:
+                    if pruned_accuracy >= current_accuracy:
 
-                        print('BEFORE {}  ----- >  AFTER {}'.format(current_accuracy, pruned_accuracy))
+                        # print('BEFORE {}  ----- >  AFTER {}'.format(current_accuracy, pruned_accuracy))
 
                         current_accuracy = evaluate(validation_data, pruned_tree)[0]
                         
@@ -83,7 +83,7 @@ def prune(tree, pruned_tree, validation_data):
                         node.children = children_under_consideration
                         node_list = pruned_tree.node_list
                         # print('Reverting: \n {} \n'.format(pruned_tree.node_list))
-                        print('Reverting children: {} and {}'.format(node.children[0].id, node.children[1].id))
+                        # print('Reverting children: {} and {}'.format(node.children[0].id, node.children[1].id))
 
                         continue
 

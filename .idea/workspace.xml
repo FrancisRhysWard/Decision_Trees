@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d27d9b45-0294-49ef-a028-3a9f0173cd56" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/co553-cbc-dt/pruning2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co553-cbc-dt/find_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/find_split.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/co553-cbc-dt/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co553-cbc-dt/pruning.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/pruning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/co553-cbc-dt/pruning3.py" beforeDir="false" afterPath="$PROJECT_DIR$/co553-cbc-dt/pruning3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/co553-cbc-dt/pruning2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1269">
-              <caret line="109" column="60" selection-start-line="109" selection-start-column="60" selection-end-line="109" selection-end-column="60" />
+            <state relative-caret-position="225">
+              <caret line="51" lean-forward="true" selection-end-line="126" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -41,16 +38,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/co553-cbc-dt/pruning3.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/co553-cbc-dt/p3.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="714">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -79,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/co553-cbc-dt/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1476">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="209">
+              <caret line="66" column="40" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="40" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -101,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/co553-cbc-dt/find_split.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1">
-              <caret line="162" selection-start-line="162" selection-end-line="162" />
+              <caret line="164" selection-start-line="164" selection-end-line="164" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -109,13 +113,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/co553-cbc-dt/prune_validate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="467">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
               <folding>
-                <element signature="e#298#1622#0" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,15 +158,15 @@
         <option value="$PROJECT_DIR$/co553-cbc-dt/p3.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/co553-cbc-dt/find_split.py" />
-        <option value="$PROJECT_DIR$/co553-cbc-dt/main.py" />
         <option value="$PROJECT_DIR$/co553-cbc-dt/pruning.py" />
-        <option value="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" />
         <option value="$PROJECT_DIR$/co553-cbc-dt/pruning2.py" />
+        <option value="$PROJECT_DIR$/co553-cbc-dt/main.py" />
         <option value="$PROJECT_DIR$/co553-cbc-dt/pruning3.py" />
+        <option value="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
     <option name="y" value="44" />
     <option name="width" value="1390" />
@@ -199,7 +203,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/co553-cbc-dt/p3.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/co553-cbc-dt/main.py" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -214,7 +218,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main2">
+  <component name="RunManager" selected="Python.main">
     <configuration name="evaluate" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="intro2ml_cw1_decisiontrees" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -257,7 +261,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main2" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python">
       <module name="intro2ml_cw1_decisiontrees" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -269,7 +273,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/co553-cbc-dt/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -280,7 +284,7 @@
     </configuration>
     <list>
       <item itemvalue="Python.evaluate" />
-      <item itemvalue="Python.main2" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.graphing" />
     </list>
   </component>
@@ -308,12 +312,12 @@
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1154" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14488935" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14488935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17485265" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5157171" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39980257" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -392,7 +396,7 @@
     <entry file="file://$PROJECT_DIR$/co553-cbc-dt/find_split.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1">
-          <caret line="162" selection-start-line="162" selection-end-line="162" />
+          <caret line="164" selection-start-line="164" selection-end-line="164" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -409,17 +413,7 @@
     <entry file="file://$PROJECT_DIR$/co553-cbc-dt/p3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/co553-cbc-dt/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1476">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -436,16 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/co553-cbc-dt/prune_validate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#298#1622#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/co553-cbc-dt/create_tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -455,8 +439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/co553-cbc-dt/pruning2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1269">
-          <caret line="109" column="60" selection-start-line="109" selection-start-column="60" selection-end-line="109" selection-end-column="60" />
+        <state relative-caret-position="225">
+          <caret line="51" lean-forward="true" selection-end-line="126" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -464,7 +448,34 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/co553-cbc-dt/pruning3.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/co553-cbc-dt/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="66" column="40" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/co553-cbc-dt/prune_validate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
