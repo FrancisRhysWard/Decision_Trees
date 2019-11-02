@@ -2,7 +2,7 @@ import numpy as np
 from tree import DecisionTree
 from evaluate import *
 from create_tree import create_tree, run_learning
-from pruning import prune
+from pruning2 import prune
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
@@ -49,16 +49,17 @@ def prune_validation(data):
     divided_data = divide_data(data, 10) # shuffles then divides data
     avg_errors = []
 
+    unpruned_measures = []
     all_90_measures = []
 
     for i in range(10):
-
+        print('Splitting on testing')
         # Split the test data
         test_data = divided_data[i]  ##  loop over test data sets
         errors_on_this_test = []
 
         for j in range(1,10):  ## loop over validation and training
-
+            print('Splitting validation')
             # Split the data
             validation_data = divided_data[(i+j) % 10]
             training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all() and not (a==validation_data).all()])
@@ -68,9 +69,20 @@ def prune_validation(data):
             run_learning(tree)
             tree_copy = create_tree(training_data, 10)
             run_learning(tree_copy)
+            # print('Unpruned tree has {} layers.'.format(len(tree.node_list)))
+
+            # Error on unpruned tree
+            # unpruned_measures.append(evaluate(test_data, tree)[0])
 
             # Prune tree on validation data
             pruned_tree = prune(tree, tree_copy, validation_data)
+
+            # print(pruned_tree.node_list)
+            # counter = 0
+            # for layer in pruned_tree.node_list:
+            #     if layer != []:
+            #         counter+=1
+            # print('Pruned tree has {} layers.'.format(counter))
             #print(evaluate(clean_dataset, pruned_tree))
             errors_on_this_test.append(1 - evaluate(test_data, pruned_tree)[0])
 
@@ -78,7 +90,7 @@ def prune_validation(data):
 
             all_90_measures.append(measures)
 
-
+        unpruned_measures.append(evaluate(test_data, tree)[0])
 
         # Collect the statistics
         avg_err_on_this_test = sum(errors_on_this_test) / len(errors_on_this_test)
@@ -86,7 +98,7 @@ def prune_validation(data):
 
         total_error = sum(avg_errors) / len(avg_errors)
 
-    return all_90_measures
+    return all_90_measures, unpruned_measures
 
 
 if __name__ == "__main__":

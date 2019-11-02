@@ -13,20 +13,16 @@ def prune(tree, pruned_tree, validation_data):
     assign_id(tree.node_list)
     assign_id(pruned_tree.node_list)
 
-    current_tree = tree
-
     stopPruning = False
+
+    node_list = pruned_tree.node_list
 
     # Evaluate the current tree
     # current_accuracy = evaluate(validation_data, current_tree)[0]
     while not stopPruning:
 
-        reassignCurrentTree = False
-
-        node_list = pruned_tree.node_list
-
         current_accuracy = evaluate(validation_data, current_tree)[0]
-        # print(' ====================================== STARTING OVER ======================================')
+        print(' ====================================== STARTING OVER ======================================')
 
         # Starting with the last layer
         for layer_idx, layer in enumerate(node_list[::-1]):
@@ -34,7 +30,8 @@ def prune(tree, pruned_tree, validation_data):
             # layer_idx indicates the index of the current layer in consideration
             layer_idx = len(node_list) - layer_idx - 1
 
-            # print('---------------  LAYER {}  -----------------'.format(layer_idx))
+            print('---------------  LAYER {}  -----------------'.format(layer_idx))
+
             if layer_idx == 0:
                 stopPruning = True
 
@@ -42,6 +39,8 @@ def prune(tree, pruned_tree, validation_data):
             for node_idx, node in enumerate(layer[::-1]):
 
                 node_idx = len(layer) - node_idx - 1
+
+                print('Node_idx = {}'.format(node_idx))
 
                 # If a node has no children - cannot prune - continue
                 if node.children is None:
@@ -70,39 +69,19 @@ def prune(tree, pruned_tree, validation_data):
                     pruned_accuracy = evaluate(validation_data, pruned_tree)[0]
 
                     # Has accuracy increased?
-                    if pruned_accuracy >= current_accuracy:
+                    if pruned_accuracy > current_accuracy:
 
-                       # print('BEFORE {}  ----- >  AFTER {}'.format(current_accuracy, pruned_accuracy))
+                        print('BEFORE {}  ----- >  AFTER {}'.format(current_accuracy, pruned_accuracy))
 
-                        # Also Remove children from the current tree node_list
-                        for current_tree_node in current_tree.node_list[layer_idx]:
-
-                            if current_tree_node.id == pruned_node_id:
-
-                                if current_tree_node.children[0].children is None and current_tree_node.children[1].children is None:
-
-                                    print('Pruning from layer {}, node {}'.format(layer_idx, node_idx))
-                                    # Delete the same node's children in the current tree
-                                    current_tree.node_list[layer_idx + 1].remove(current_tree_node.children[0])
-                                    current_tree.node_list[layer_idx + 1].remove(current_tree_node.children[1])
-
-                                    # Set children to None
-                                    current_tree_node.children = None
-
-                                    reassignCurrentTree = True
-
-                                    break
-
-                        if reassignCurrentTree is True:
-                            break
-
+                        pruned_accuracy = evaluate(validation_data, pruned_tree)[0]
+                        
                     else:
                         # Revert back the changes
                         for child in children_under_consideration:
                             pruned_tree.node_list[layer_idx + 1].append(child)
                         node.children = children_under_consideration
                         # print('Reverting: \n {} \n'.format(pruned_tree.node_list))
-                        # print('Reverting children: {}'.format(node.children))
+                        print('Reverting children: {} and {}'.format(node.children[0].id, node.children[1].id))
 
                         continue
 
