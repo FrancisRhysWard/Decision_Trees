@@ -37,10 +37,10 @@ def H(S):
 ## print(H(clean_dataset))
 
 
-def split_random(S):
+def split_random(S, wifi_index):
     size = len(S)
 
-    random_attribute_index = choice(range(len(S[0]) - 1)) ## chooses a random wifi signal
+    random_attribute_index = wifi_index ## chooses a random wifi signal
 
     values = [sample[random_attribute_index] for sample in S]
 
@@ -48,7 +48,7 @@ def split_random(S):
 
     import random
     # rand_split_value = choice(values)
-    rand_split_value = random.randint(-80, -30)
+    rand_split_value = random.randint(min(values), max(values))
 
     ##print(f"wifi {wifi_attr[wifi_index]} split at mean value {mean_split_value}")
 
@@ -57,6 +57,11 @@ def split_random(S):
     S_right = np.array([sample for sample in S if sample[random_attribute_index] > rand_split_value])
 
     return S_left, S_right, wifi_attr[random_attribute_index], rand_split_value
+
+
+def split_by_set(S, wifi_index):
+
+
 
 
 def split(S, wifi_index):
@@ -97,6 +102,36 @@ def Gain(S, split):
 
 
 
+# def find_split(data):
+#
+#     gains = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+#     split = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+#
+#     for i in range(7):
+#
+#         data_sorted = data[data[:, i].argsort()]
+#         gain_max = 0
+#         split_j = 0
+#
+#         for j in range(len(data_sorted) - 1):
+#
+#             if data_sorted[j, i] == data_sorted[j + 1, i]:
+#                 continue
+#
+#             left_data, right_data = split_data(data_sorted, i, data_sorted[j + 1, i])
+#             gain_j = gain(data_sorted[:, 7], left_data[:, 7], right_data[:, 7])
+#
+#             if gain_j > gain_max:
+#                 gain_max = gain_j
+#                 split_j = (data_sorted[j + 1, i] + data_sorted[j, i]) / 2
+#
+#         gains[i] = gain_max
+#         split[i] = split_j
+#
+#     return max(gains, key=gains.get), split[max(gains, key=gains.get)]
+
+
+
 def find_split(S):
     '''
 
@@ -108,16 +143,44 @@ def find_split(S):
         return None
 
     splits = []
+    gains= []
+
+
+    for i in range(len(wifi_attr)):
+
+        # For each attribute create a set of unique values
+        splits.append() set([sample[i - 1] for sample in S])
+
+
+
+
+
+
+
+
+
+
 
     for i in range(len(wifi_attr)):
         # print('Scanning for Wifi{}'.format(i))
         # for j in range(len(S)):
         # result_from_split = split(S, i, j)
-        result_from_split = split(S, i)
+        splits_temp = []
+        max_gains = []
+
+        for j in range(5):
+            # print('{} - {}'.format(i,j))
+            result_from_split = split_random(S, i)
+            splits_temp.append(result_from_split)
+            gains_temp = [Gain(S, result_from_split) for result_from_split in splits_temp]
+            max_index_temp = np.argmax(gains_temp)
+            max_gain_temp = gains_temp[max_index_temp]
 
         # result_from_split = split_random(S)
-        splits.append(result_from_split)
-    gains = [Gain(S, split) for split in splits]
+        splits.append(splits_temp[max_index_temp])
+        gains.append(max_gain_temp)
+
+    # gains = [Gain(S, split) for split in splits]
     max_index = np.argmax(gains)
     max_gain = gains[max_index]
 

@@ -49,25 +49,32 @@ def prune_validation(data):
     divided_data = divide_data(data, 10) # shuffles then divides data
     avg_errors = []
 
+    unpruned_measures = []
     all_90_measures = []
 
     for i in range(10):
-
+        print('Splitting on testing')
         # Split the test data
         test_data = divided_data[i]  ##  loop over test data sets
         errors_on_this_test = []
 
         for j in range(1,10):  ## loop over validation and training
-
+            print('Splitting validation')
             # Split the data
             validation_data = divided_data[(i+j) % 10]
             training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all() and not (a==validation_data).all()])
+            print(training_data)
+            print('='*30)
+            print(validation_data)
 
             # Train a tree
             tree = create_tree(training_data, 10)
             run_learning(tree)
             tree_copy = create_tree(training_data, 10)
             run_learning(tree_copy)
+
+            # Error on unpruned tree
+            # unpruned_measures.append(evaluate(test_data, tree)[0])
 
             # Prune tree on validation data
             pruned_tree = prune(tree, tree_copy, validation_data)
@@ -78,7 +85,7 @@ def prune_validation(data):
 
             all_90_measures.append(measures)
 
-
+        unpruned_measures.append(evaluate(test_data, tree)[0])
 
         # Collect the statistics
         avg_err_on_this_test = sum(errors_on_this_test) / len(errors_on_this_test)
@@ -86,7 +93,7 @@ def prune_validation(data):
 
         total_error = sum(avg_errors) / len(avg_errors)
 
-    return all_90_measures
+    return all_90_measures, unpruned_measures
 
 
 if __name__ == "__main__":
