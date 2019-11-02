@@ -35,33 +35,6 @@ start_node = tree.start_node
 
 width = 2000
 
-#print(tree.node_list)
-
-# max_nodes_in_layer = max([len(layer) for layer in tree.node_list])
-#
-# for layer_idx, layer in enumerate(tree.node_list):
-#     width = 1/len(layer)
-#     for i, node in enumerate(layer):
-#         if node.children != None:
-#             node.children[0].coord[0] = node.coord[0]  - width  #len(tree.node_list)/(tree.node_list.index(layer) +1)
-#             node.children[0].coord[1] = node.coord[1] - 20 # -1 depth
-#             node.children[1].coord[0] = node.coord[0]  + width  #len(tree.node_list)/(tree.node_list.index(layer)+1)
-#             node.children[1].coord[1] = node.coord[1] - 20 # -1 depth
-#
-# for layer in tree.node_list:
-#     for node in layer:
-#         node_x = node.coord[0]
-#         node_y = node.coord[1]
-#         if node.children != None:
-#             for child in node.children:
-#                 xt = [node_x,  child.coord[0]]
-#                 yt = [node_y, child.coord[1]]
-#                 plt.plot(xt, yt)
-#
-# plt.show()
-
-
-
 
 # WORKING SOLUTION
 
@@ -88,33 +61,6 @@ for layer in tree.node_list:
 
 plt.show()
 
-#
-# # Prune tree on validation data
-# pruned_tree = prune(tree, tree_copy, validation_data)
-#
-# max_nodes_in_layer = max([len(layer) for layer in pruned_tree.node_list])
-#
-# for layer in pruned_tree.node_list:
-#     for i,node in enumerate(layer):
-#         if node.children != None:
-#             node.children[0].coord[0] = node.coord[0]  - len(pruned_tree.node_list)/(pruned_tree.node_list.index(layer) + 1)
-#             node.children[0].coord[1] = node.coord[1] - 5 # -1 depth
-#
-#             node.children[1].coord[0] = node.coord[0]  + len(pruned_tree.node_list)/(pruned_tree.node_list.index(layer) + 1)
-#             node.children[1].coord[1] = node.coord[1] - 5 # -1 depth
-#
-#
-# for layer in pruned_tree.node_list:
-#     for node in layer:
-#         node_x = node.coord[0]
-#         node_y = node.coord[1]
-#         if node.children != None:
-#             for child in node.children:
-#                 xt = [node_x,  child.coord[0]]
-#                 yt = [node_y, child.coord[1]]
-#                 plt.plot(xt, yt)
-#
-# plt.show()
 
 # Prune tree on validation data
 tree = prune(tree, tree_copy, validation_data)
