@@ -61,20 +61,73 @@ for layer in tree.node_list:
 
 plt.show()
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+#<<<<<<< HEAD
+=======
+>>>>>>> 9129ac2031512fca63c117b527caade87e4177b4
+#
+# # Prune tree on validation data
+# pruned_tree = prune(tree, tree_copy, validation_data)
+#
+# max_nodes_in_layer = max([len(layer) for layer in pruned_tree.node_list])
+#
+# for layer in pruned_tree.node_list:
+#     for i,node in enumerate(layer):
+#         if node.children != None:
+#             node.children[0].coord[0] = node.coord[0]  - len(pruned_tree.node_list)/(pruned_tree.node_list.index(layer) + 1)
+#             node.children[0].coord[1] = node.coord[1] - 5 # -1 depth
+#
+#             node.children[1].coord[0] = node.coord[0]  + len(pruned_tree.node_list)/(pruned_tree.node_list.index(layer) + 1)
+#             node.children[1].coord[1] = node.coord[1] - 5 # -1 depth
+#
+#
+# for layer in pruned_tree.node_list:
+#     for node in layer:
+#         node_x = node.coord[0]
+#         node_y = node.coord[1]
+#         if node.children != None:
+#             for child in node.children:
+#                 xt = [node_x,  child.coord[0]]
+#                 yt = [node_y, child.coord[1]]
+#                 plt.plot(xt, yt)
+#
+# plt.show()
+<<<<<<< HEAD
+#=======
+
+# Prune tree on validation data
+pruned_tree = prune(tree, tree_copy, validation_data)
+width = 2000
+=======
+>>>>>>> 64c12e5b3248b7a13ebbd9b4d37c7a8027bc2d0c
 
 # Prune tree on validation data
 tree = prune(tree, tree_copy, validation_data)
+>>>>>>> 9129ac2031512fca63c117b527caade87e4177b4
 
 max_nodes_in_layer = max([len(layer) for layer in tree.node_list])
 
 for layer in tree.node_list:
     for i, node in enumerate(layer):
         if node.children != None:
+<<<<<<< HEAD
+            node.children[0].coord[0] = node.coord[0]  - width
+            node.children[0].coord[1] = node.coord[1] - 20# -1 depth
+
+            node.children[1].coord[0] = node.coord[0]  + width
+            node.children[1].coord[1] = node.coord[1] - 20 # -1 depth
+    width = width * 0.5
+
+=======
             node.children[0].coord[0] = node.coord[0]  - width  #len(tree.node_list)/(tree.node_list.index(layer) +1)
             node.children[0].coord[1] = node.coord[1] - 20 # -1 depth
             node.children[1].coord[0] = node.coord[0]  + width  #len(tree.node_list)/(tree.node_list.index(layer)+1)
             node.children[1].coord[1] = node.coord[1] - 20 # -1 depth
     width = width * 0.5
+>>>>>>> 9129ac2031512fca63c117b527caade87e4177b4
 
 for layer in tree.node_list:
     for node in layer:
@@ -87,3 +140,7 @@ for layer in tree.node_list:
                 plt.plot(xt, yt)
 
 plt.show()
+<<<<<<< HEAD
+#>>>>>>> 70ab65bb11f817f7f5e4982b39760d2a8a11b4e5
+=======
+>>>>>>> 9129ac2031512fca63c117b527caade87e4177b4

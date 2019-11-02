@@ -5,7 +5,7 @@ from create_tree import create_tree, run_learning
 
 
 
-wifi_labels = [1,2,3,4]
+room_labels = [1,2,3,4]
 
 
 def divide_data(data, n):
@@ -17,13 +17,13 @@ def divide_data(data, n):
     return np.split(data, n)  ## returns list of n np arrays used as CV folds
 
 
-def precision_recall(wifi, cm):
+def precision_recall(room, cm):
     '''
-    takes a wifi label and confusion matrix and returns the precision and recall
+    takes a room label and confusion matrix and returns the precision and recall
     '''
-    tp = cm[wifi - 1][wifi - 1]
-    fp = cm.sum(0)[wifi - 1] - tp
-    fn = cm.sum(1)[wifi - 1] -  tp
+    tp = cm[room - 1][room - 1]
+    fp = cm.sum(0)[room - 1] - tp
+    fn = cm.sum(1)[room - 1] -  tp
 
     # if tp + fp == 0:
     #     print(tp, fp)
@@ -73,16 +73,16 @@ def evaluate(test_data, learned_tree):
     # print('Classification rate: {}%'.format(classification_rate * 100))
     measures = [classification_rate, confusion_matrix]
 
-    for i in wifi_labels:
-        wifi_measures = {}
-        wifi_measures["label"] = i
-        wifi_measures["precision"] = precision_recall(i, confusion_matrix)[0]
-        wifi_measures["recall"] = precision_recall(i, confusion_matrix)[1]
-        wifi_measures["f1"] = F1(precision_recall(i, confusion_matrix)[0], precision_recall(i, confusion_matrix)[1])
+    for i in room_labels:
+        room_measures = {}
+        room_measures["label"] = i
+        room_measures["precision"] = precision_recall(i, confusion_matrix)[0]
+        room_measures["recall"] = precision_recall(i, confusion_matrix)[1]
+        room_measures["f1"] = F1(precision_recall(i, confusion_matrix)[0], precision_recall(i, confusion_matrix)[1])
 
 
 
-        measures.append(wifi_measures)
+        measures.append(room_measures)
 
     # print(confusion_matrix)
     ## number_incorrect_predictions = set.difference(set(test_data), set(tree_predictions))
@@ -138,9 +138,9 @@ if __name__ == "__main__":
 
     av_acc, av_cm = get_avg_stats(cross_validation(clean_dataset))
 
-    for wifi in wifi_labels:
-        p = precision_recall(wifi, av_cm)[0]
-        r = precision_recall(wifi, av_cm)[1]
-        print(f"Wifi label = {wifi}, precision = {p}, recall = {r}, F1 = {F1(p, r)}")
+    for room in room_labels:
+        p = precision_recall(room, av_cm)[0]
+        r = precision_recall(room, av_cm)[1]
+        print(f"Room label = {room}, precision = {p}, recall = {r}, F1 = {F1(p, r)}")
 
 
