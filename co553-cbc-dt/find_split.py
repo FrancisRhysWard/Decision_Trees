@@ -7,6 +7,7 @@ data_size = len(clean_dataset)
 
 wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
 
+
 def p_k(k, S):
     '''
     takes a label k and array of data S and returns the sample probability of k in S as a float
@@ -21,7 +22,6 @@ def p_k(k, S):
 
     return number_k_in_S / S_size
 
-## print(p_k(1.0, clean_dataset[:10]))
 
 def H(S):
     '''
@@ -33,30 +33,6 @@ def H(S):
     list_of_p = [p_k(k, S) for k in labels if p_k(k, S) != 0] ## create ps so they only need to be calcd once
     summands = [p * np.log2(p) for p in list_of_p]  ## create H summands
     return - sum(summands)
-
-## print(H(clean_dataset))
-
-
-def split_random(S, wifi_index):
-    size = len(S)
-
-    random_attribute_index = wifi_index ## chooses a random wifi signal
-
-    values = [sample[random_attribute_index] for sample in S]
-
-    # mean_split_value = sum(values) / size
-
-    import random
-    # rand_split_value = choice(values)
-    rand_split_value = random.randint(min(values), max(values))
-
-    ##print(f"wifi {wifi_attr[wifi_index]} split at mean value {mean_split_value}")
-
-    S_left = np.array([sample for sample in S if sample[random_attribute_index] <= rand_split_value])
-
-    S_right = np.array([sample for sample in S if sample[random_attribute_index] > rand_split_value])
-
-    return S_left, S_right, wifi_attr[random_attribute_index], rand_split_value
 
 
 def split_by_set(S, wifi_index, value):
@@ -76,32 +52,6 @@ def split_by_set(S, wifi_index, value):
 
 
 
-def split(S, wifi_index):
-
-        size = len(S)
-
-        ## random_attribute_index = choice(range(len(S[0]) - 1)) ## chooses a random wifi signal
-
-        values = [sample[wifi_index] for sample in S]
-
-        #mean_split_value = sum(values) / size
-
-        mean_split_value = np.median(values)
-
-        # mean_split_value = values[j]
-
-
-        #rand_split_value = choice(values)
-
-        ##print(f"wifi {wifi_attr[wifi_index]} split at mean value {mean_split_value}")
-
-        S_left = np.array([sample for sample in S if sample[wifi_index] <= mean_split_value])
-
-        S_right = np.array([sample for sample in S if sample[wifi_index] > mean_split_value])
-
-        return S_left, S_right, wifi_attr[wifi_index], mean_split_value
-
-
 def remainder(split):
     S_left, S_right = split[:2]
     size_left = len(S_left)
@@ -113,36 +63,6 @@ def remainder(split):
 
 def Gain(S, split):
     return H(S) - remainder(split)
-
-
-
-# def find_split(data):
-#
-#     gains = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
-#     split = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
-#
-#     for i in range(7):
-#
-#         data_sorted = data[data[:, i].argsort()]
-#         gain_max = 0
-#         split_j = 0
-#
-#         for j in range(len(data_sorted) - 1):
-#
-#             if data_sorted[j, i] == data_sorted[j + 1, i]:
-#                 continue
-#
-#             left_data, right_data = split_data(data_sorted, i, data_sorted[j + 1, i])
-#             gain_j = gain(data_sorted[:, 7], left_data[:, 7], right_data[:, 7])
-#
-#             if gain_j > gain_max:
-#                 gain_max = gain_j
-#                 split_j = (data_sorted[j + 1, i] + data_sorted[j, i]) / 2
-#
-#         gains[i] = gain_max
-#         split[i] = split_j
-#
-#     return max(gains, key=gains.get), split[max(gains, key=gains.get)]
 
 
 

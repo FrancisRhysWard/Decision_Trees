@@ -54,10 +54,6 @@ class Node():
         # Tuple --> (feature, split value)
         self.split_attribute = split_attribute
 
-        #
-        self.id = None
-
-
 
     def find_split(self):
         '''
@@ -110,6 +106,3 @@ class Node():
 
         # Add them to the tree.node_list
         self.tree.change_node_list(self.children, self.depth+1)
-
-        # Update the max_depth of the tree
-        self.tree.update_max_depth(self.depth+1)

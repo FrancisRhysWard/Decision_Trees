@@ -1,14 +1,13 @@
 from tree import DecisionTree
 
 
-def create_tree(_dataset, _max_depth):
+def create_tree(_dataset):
     '''
 
     :param _dataset: dataset that will be assigned to the root of the tree
-    :param _max_depth: REMOVE THIS
     :return: return a DecisionTree object (not trained)
     '''
-    return DecisionTree(_dataset, _max_depth)
+    return DecisionTree(_dataset)
 
 
 

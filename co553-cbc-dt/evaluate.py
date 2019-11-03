@@ -127,7 +127,6 @@ def evaluate(test_data, learned_tree):
     return measures
 
 
-
 def cross_validation(data):
     '''
     Takes some data and performs cross validation to iterate over test and training data and train different trees to return the average performance
@@ -147,7 +146,7 @@ def cross_validation(data):
 
         training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all()])
 
-        tree = create_tree(training_data, 2)
+        tree = create_tree(training_data)
 
         learned_tree = decision_tree_learning(tree)
 
@@ -155,22 +154,35 @@ def cross_validation(data):
 
         all_10_measures.append(measures)
 
-        print(measures[2])
-
     return all_10_measures
 
 
+def get_avg_stats(all_10_measures):
 
-def get_avg_stats(cv):
+    avg_acc = sum([measure[0] for measure in all_10_measures]) / len(all_10_measures)
 
-    avg_acc = sum([measure[0] for measure in cv])/len(cv)
+    avg_cm = sum([measure[1] for measure in all_10_measures]) / len(all_10_measures)
 
-    avg_cm = sum([measure[1] for measure in cv])/len(cv)
+    avg_depth = sum([measure[2] for measure in all_10_measures]) / len(all_10_measures)
 
-    avg_depth = sum([measure[2] for measure in cv])/len(cv)
+    min_depth, max_depth = min([measure[2] for measure in all_10_measures]), max([measure[2] for measure in all_10_measures])
 
+    room_stats = []
 
-    return avg_acc, avg_cm, avg_depth
+    for room in room_labels:
+        label = '>> Room {}'.format(room)
+        p_str = '\tPrecision: {}'.format(precision_recall(room, avg_cm)[0])
+        r_str = '\tRecall: {}'.format(precision_recall(room, avg_cm)[1])
+        f1 = '\tF1: {}\n'.format(round(F1(precision_recall(room, avg_cm)[0], precision_recall(room, avg_cm)[1]), 4))
+        room_stats.append(label)
+        room_stats.append(p_str)
+        room_stats.append(r_str)
+        room_stats.append(f1)
+
+        #print(f"Room Lable = {room} & precision = {round(p,4)} & recall = {round(r,4)} & F1 = {round(F1(p, r),4)} \\\\")
+        # print(f"{room} & {round(p,4)} &  {round(r,4)} &  {round(F1(p, r),4)} \\\\")
+
+    return avg_acc, avg_cm, avg_depth, min_depth, max_depth, room_stats
 
 
 if __name__ == "__main__":

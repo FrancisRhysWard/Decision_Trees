@@ -6,14 +6,11 @@ import numpy as np
 
 class DecisionTree():
 
-    def __init__(self, dataset, max_depth):
+    def __init__(self, dataset):
         '''
 
         :param dataset: root dataset of the tree
-        :param max_depth: REMOVE THIS
         '''
-
-        self.max_depth = max_depth
 
         # Create the root node
         self.start_node = Node(self, dataset, parent=None)

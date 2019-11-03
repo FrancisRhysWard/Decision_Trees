@@ -2,7 +2,7 @@ import numpy as np
 from tree import DecisionTree
 from evaluate import *
 from create_tree import create_tree, decision_tree_learning
-from pruning3 import prune
+from pruning import prune
 from print_tree import print_results
 
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
@@ -16,7 +16,7 @@ def prune_validation(data):
             3. For each TRAINING and VALIDATION:
                 a) Train a tree using TRAINING
                 b) Prune a tree using VALIDATION
-                c) Test each pruned tree using TEST (9 measures x 10 test datasets = 90 measures)
+                c) Test each pruned tree using TEST (9 trees x 10 test datasets = 90 measures)
 
     :param data: full dataset (clean_dataset OR noisy_dataset)
     :return: all_90_measures: list of [measures1, measures2, ..., measures90]
@@ -30,7 +30,6 @@ def prune_validation(data):
     all_90_measures = []
 
     for i in range(10):
-        print('========================== TEST {}'.format(i))
         # Split TEST and TRAINING+VALIDATION (x10 times)
         test_data = divided_data[i]
         errors_on_this_test = []
@@ -42,7 +41,7 @@ def prune_validation(data):
             training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all() and not (a==validation_data).all()])
 
             # Train a tree
-            tree = create_tree(training_data, 10)
+            tree = create_tree(training_data)
             decision_tree_learning(tree)
 
             # Prune tree on VALIDATION
@@ -71,7 +70,7 @@ if __name__ == "__main__":
     # Sandbox
     pruned_results = prune_validation(clean_dataset)
 
-    av_acc, av_cm, av_depth = get_avg_stats(pruned_results)
+    av_acc, av_cm, av_depth, _, _ = get_avg_stats(pruned_results)
 
     print(av_acc, av_depth, av_cm)
 
