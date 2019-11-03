@@ -27,11 +27,21 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+            <state relative-caret-position="375">
+              <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_tree.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/create_tree.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pruning.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pruning.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pruning.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="402">
@@ -58,27 +68,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prune_validate.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prune_validate.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <marker date="1572813760000" expanded="true" signature="2709:3038" ph="..." />
-              </folding>
-            </state>
+      <file leaf-file-name="Pruned_tree_1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Figures/Pruned_tree_1.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Classification distribution&#10;Unpruned vs. Pruned&#10;Clean Dataset.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Figures/Classification distribution&#10;Unpruned vs. Pruned&#10;Clean Dataset.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Classification distribution&#10;Unpruned vs. Pruned&#10;Noisy Dataset.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Figures/Classification distribution&#10;Unpruned vs. Pruned&#10;Noisy Dataset.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Maximum depth distribution&#10;Unpruned vs. Pruned&#10;Clean Dataset.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Figures/Maximum depth distribution&#10;Unpruned vs. Pruned&#10;Clean Dataset.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Maximum depth distribution&#10;Unpruned vs. Pruned&#10;Noisy Dataset.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Figures/Maximum depth distribution&#10;Unpruned vs. Pruned&#10;Noisy Dataset.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="evaluate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="-804">
               <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1572813760000" expanded="true" signature="477:870" ph="..." />
               </folding>
             </state>
           </provider>
@@ -167,6 +198,11 @@
             <path>
               <item name="co553-cbc-dt" type="b2602c69:ProjectViewProjectNode" />
               <item name="co553-cbc-dt" type="462c0819:PsiDirectoryNode" />
+              <item name="Figures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="co553-cbc-dt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="co553-cbc-dt" type="462c0819:PsiDirectoryNode" />
               <item name="wifi_db" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -184,6 +220,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Figures" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -333,30 +370,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main2.py" />
-    <entry file="file://$PROJECT_DIR$/tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="99" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="292" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main2.py" />
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -474,49 +487,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/print_tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="43" column="71" lean-forward="false" selection-start-line="43" selection-start-column="71" selection-end-line="43" selection-end-column="71" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pruning3.py" />
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prune_validate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <marker date="1572813760000" expanded="true" signature="2709:3038" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1572813760000" expanded="true" signature="477:870" ph="..." />
+            <marker date="1572823259000" expanded="true" signature="2558:2887" ph="..." />
+            <marker date="1572823259000" expanded="true" signature="2589:2887" ph="..." />
           </folding>
         </state>
       </provider>
@@ -535,6 +522,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
           <caret line="71" column="37" lean-forward="true" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Figures/Pruned_tree_1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Figures/Classification distribution&#10;Unpruned vs. Pruned&#10;Clean Dataset.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Figures/Classification distribution&#10;Unpruned vs. Pruned&#10;Noisy Dataset.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Figures/Maximum depth distribution&#10;Unpruned vs. Pruned&#10;Clean Dataset.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Figures/Maximum depth distribution&#10;Unpruned vs. Pruned&#10;Noisy Dataset.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-804">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
           <folding />
         </state>
       </provider>
