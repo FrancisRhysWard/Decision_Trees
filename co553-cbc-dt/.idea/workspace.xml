@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a250249b-313c-4b45-9dee-793d244cbad1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collect_measures.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/create_tree.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/print_tree.py" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/iris" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/main2.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -25,31 +27,31 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#484#1996#0" expanded="false" />
+                <element signature="e#912#975#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_tree.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/create_tree.py">
+      <file leaf-file-name="collect_measures.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/collect_measures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pruning3.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pruning3.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pruning3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+            <state relative-caret-position="751">
+              <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -57,12 +59,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prune_validate.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prune_validate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/prune_validate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-613">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="334">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#2421#2908#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,8 +75,8 @@
       <file leaf-file-name="evaluate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
-              <caret line="117" column="26" lean-forward="false" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="26" />
+            <state relative-caret-position="854">
+              <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -110,7 +115,6 @@
         <option value="$PROJECT_DIR$/sciit.py" />
         <option value="$PROJECT_DIR$/scikit.py" />
         <option value="$PROJECT_DIR$/symbolicai.py" />
-        <option value="$PROJECT_DIR$/evaluate.py" />
         <option value="$PROJECT_DIR$/find_split.py" />
         <option value="$PROJECT_DIR$/cross_validate.py" />
         <option value="$PROJECT_DIR$/predict.py" />
@@ -120,9 +124,13 @@
         <option value="$PROJECT_DIR$/node.py" />
         <option value="$PROJECT_DIR$/p3.py" />
         <option value="$PROJECT_DIR$/create_tree.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/prune_validate.py" />
+        <option value="$PROJECT_DIR$/wifi_db/print_tree.py" />
+        <option value="$PROJECT_DIR$/print_tree.py" />
+        <option value="$PROJECT_DIR$/evaluate.py" />
         <option value="$PROJECT_DIR$/pruning3.py" />
+        <option value="$PROJECT_DIR$/collect_measures.py" />
+        <option value="$PROJECT_DIR$/prune_validate.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -172,10 +180,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -261,7 +269,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48004836" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2490931" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08464329" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -313,29 +321,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding>
-            <marker date="1572707282000" expanded="true" signature="471:1540" ph="..." />
-            <marker date="1572707282000" expanded="true" signature="1603:1973" ph="..." />
-            <marker date="1572707282000" expanded="true" signature="1612:1868" ph="&quot;&quot;&quot;Finds the best split_attribute for the particular self.dataset...&quot;&quot;&quot;" />
-            <marker date="1572707282000" expanded="true" signature="2001:2380" ph="..." />
-            <marker date="1572707282000" expanded="true" signature="2010:2241" ph="&quot;&quot;&quot;Dataset is split according to the provided split criterion...&quot;&quot;&quot;" />
-            <marker date="1572707282000" expanded="true" signature="2422:2592" ph="&quot;&quot;&quot;After the split_attribute is determined, we split the data accordingly and initialise children...&quot;&quot;&quot;" />
-            <marker date="1572707282000" expanded="true" signature="2755:2807" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="99" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="292" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -466,7 +451,7 @@
         <state relative-caret-position="599">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -550,42 +535,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/print_tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="645">
+          <caret line="43" column="71" lean-forward="false" selection-start-line="43" selection-start-column="71" selection-end-line="43" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="854">
+          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#484#1996#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collect_measures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prune_validate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#2421#2908#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#912#975#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pruning3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+        <state relative-caret-position="751">
+          <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="117" column="26" lean-forward="false" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prune_validate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-613">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>

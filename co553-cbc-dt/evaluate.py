@@ -8,22 +8,31 @@ from create_tree import create_tree, decision_tree_learning
 room_labels = [1,2,3,4]
 
 
-def divide_data(data, n):
+def divide_data(data, k_folds):
     '''
-    takes a data set (np.array), shuffles it then splits it into ten arrays and returns a list of these arrays
+    Shuffles and splits data into k-folds
+    :param data: dataset (np.array)
+    :param k_folds: number of splits
+    :return: list of np.arrays
     '''
-    np.random.shuffle(data) ## shuffles data
 
-    return np.split(data, n)  ## returns list of n np arrays used as CV folds
+    np.random.shuffle(data)
+
+    return np.split(data, k_folds)
 
 
-def precision_recall(room, cm):
+def precision_recall(room, confusion_matrix):
     '''
-    takes a room label and confusion matrix and returns the precision and recall
+    Takes room label and confusion matrix and returns the precision and recall
+
+    :param room: label
+    :param confusion_matrix: confusion matrix
+    :return: precision, recall
     '''
-    tp = cm[room - 1][room - 1]
-    fp = cm.sum(0)[room - 1] - tp
-    fn = cm.sum(1)[room - 1] -  tp
+
+    tp = confusion_matrix[room - 1][room - 1]
+    fp = confusion_matrix.sum(0)[room - 1] - tp
+    fn = confusion_matrix.sum(1)[room - 1] - tp
 
     # if tp + fp == 0:
     #     print(tp, fp)
@@ -34,67 +43,98 @@ def precision_recall(room, cm):
     return precision, recall
 
 
-def F1(p, r):
+def F1(precision, recall):
     '''
-    takes the precision and recall and returns f1 measure
+    Takes the precision and recall and returns f1 measure
+    :param precision: precision
+    :param recall: recall
+    :return: f1 measure
     '''
 
-    return 2 * ( p * r ) / ( p + r )
+    return 2 * (precision * recall) / (precision + recall)
+
+
+def create_confusion_matrix(test_data, tree_predictions):
+    '''
+    Creates a confusion matrix based on TEST and predicted labels
+    :param test_data: TEST
+    :param tree_predictions: TEST with replaced labels by predictions
+    :return: confusion matrix (np.array)
+    '''
+
+    # Initialise confusion matrix
+    cm_dimensions = (4, 4)
+
+    # Create a numpy representation
+    confusion_matrix = np.zeros(cm_dimensions)
+
+    # Add all results to confusion matrix
+    for sample_actual, sample_predicted in zip(test_data, tree_predictions):
+        confusion_matrix[int(sample_actual[-1]) - 1][int(sample_predicted[-1]) - 1] += 1
+
+    return confusion_matrix
+
 
 
 def evaluate(test_data, learned_tree):
     '''
-    takes a test array and a learned tree and returns test measures
+    Takes a test array and a learned tree and returns test measures
+    :param test_data: data on which the tree is tested
+    :param learned_tree: tree object
+    :return: measures --> [
+                            classification rate,
+                            confusion matrix,
+                            max_depth,
+                            {label, precision, recall, f1}
+                            ]
     '''
 
+    # Initialise some variables
     total_size = len(test_data)
-
     tree_predictions = []
-
     test_data_to_predict = test_data.copy()
 
 
+    # Retrieve TEST with labels replaced by predictions
     for sample in test_data_to_predict:
         tree_predictions.append(predict(learned_tree, sample))  # should = test_data with actual labels replace with predictions
 
     tree_predictions = np.array(tree_predictions)
 
-    cm_dimensions = (4,4)
 
-    confusion_matrix = np.zeros(cm_dimensions)
+    # Create confusion matrix
+    confusion_matrix = create_confusion_matrix(test_data, tree_predictions)
 
-    # Add all results to confusion matrix
-    for sample_actual, sample_predicted in zip(test_data, tree_predictions):
 
-        confusion_matrix[int(sample_actual[-1])-1][int(sample_predicted[-1]) - 1] += 1
-
+    # Calculate statistics
     classification_rate = np.trace(confusion_matrix) / total_size
-
     max_depth = len(learned_tree.node_list)
 
-    # print('Classification rate: {}%'.format(classification_rate * 100))
+
+    # Initialise a list of measures with classification rate and max_depth
     measures = [classification_rate, confusion_matrix, max_depth]
 
+    # Add all other stats to measures
     for i in room_labels:
         room_measures = {}
         room_measures["label"] = i
         room_measures["precision"] = precision_recall(i, confusion_matrix)[0]
         room_measures["recall"] = precision_recall(i, confusion_matrix)[1]
         room_measures["f1"] = F1(precision_recall(i, confusion_matrix)[0], precision_recall(i, confusion_matrix)[1])
-
-
-
         measures.append(room_measures)
-
-    # print(confusion_matrix)
-    ## number_incorrect_predictions = set.difference(set(test_data), set(tree_predictions))
 
 
     return measures
 
+
+# ======================================
+# WHEN DO WE ACTUALLY USE THESE METHODS?
+
 def cross_validation(data):
     '''
-    takes some data and performs corss validation to iterate over test and training data and train different trees to return the average performance
+    Takes some data and performs cross validation to iterate over test and training data and train different trees to return the average performance
+    :param data:
+    :return:
     '''
 
     divided_data = divide_data(data, 10)
