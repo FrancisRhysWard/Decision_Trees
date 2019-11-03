@@ -4,8 +4,8 @@ from evaluate import *
 from create_tree import create_tree, decision_tree_learning
 from pruning3 import prune
 
-# clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
-# noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
+clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
+noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
 
 
 
@@ -76,7 +76,7 @@ def prune_validation(data):
             # Prune tree on validation data
             pruned_tree = prune(tree, tree_copy, validation_data)
 
-            print(pruned_tree.node_list)
+           # print(pruned_tree.node_list)
             counter = 0
             for layer in pruned_tree.node_list:
                 if layer != []:
@@ -87,6 +87,8 @@ def prune_validation(data):
             errors_on_this_test.append(1 - evaluate(test_data, pruned_tree)[0])
 
             measures = evaluate(test_data, pruned_tree)
+
+            print(i, j)
 
             all_90_measures.append(measures)
 
@@ -100,7 +102,7 @@ def prune_validation(data):
 
 
 if __name__ == "__main__":
-    pruned_results = prune_validation(clean_dataset)
+    pruned_results = prune_validation(noisy_dataset)
 
     av_acc, av_cm, av_depth = get_avg_stats(pruned_results)
 

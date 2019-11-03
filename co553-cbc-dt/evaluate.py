@@ -142,7 +142,7 @@ if __name__ == "__main__":
     clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
     #print(cross_validation(clean_dataset))
 
-    av_acc, av_cm, av_depth = get_avg_stats(cross_validation(noisy_dataset))
+    av_acc, av_cm, av_depth = get_avg_stats(cross_validation(clean_dataset))
 
     print(av_acc, av_depth, av_cm)
 
