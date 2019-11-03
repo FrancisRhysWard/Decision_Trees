@@ -7,16 +7,14 @@ data_size = len(clean_dataset)
 
 wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
 
+print(clean_dataset[:10])
+
 def p_k(k, S):
     '''
     takes a label k and array of data S and returns the sample probability of k in S as a float
     '''
 
     S_size = len(S)
-
-    #if S_size == 0:
-     #   return 1  ## entropy 0 and therefore negative gain
-
     number_k_in_S = len([s for s in S if s[-1] == k]) ## number of samples in S with label k
 
     return number_k_in_S / S_size
@@ -36,30 +34,27 @@ def H(S):
 
 ## print(H(clean_dataset))
 
-def split(S, wifi_index):
+def split(S):
+    random_attribute_index = choice(range(len(S[0]) - 1)) ## chooses a random wifi signal
+   ## rand_data_subset = clean_dataset[randint(0, 1000): randint(1000, -1)]
 
-        size = len(S)
+    size = len(S)
 
-        ## random_attribute_index = choice(range(len(S[0]) - 1)) ## chooses a random wifi signal
+    rand_data_subset = S[int(size * 0.2): int(size * 0.8)]
 
-        values = [sample[wifi_index] for sample in S]
+    values = [sample[random_attribute_index] for sample in rand_data_subset]
 
-        mean_split_value = sum(values) / size
+    rand_split_value = choice(values)
 
-        ##rand_split_value = choice(values)
+    S_left = [sample for sample in S if sample[random_attribute_index] <= rand_split_value]
 
-        ##print(f"wifi {wifi_attr[wifi_index]} split at mean value {mean_split_value}")
-
-        S_left = np.array([sample for sample in S if sample[wifi_index] <= mean_split_value])
-
-        S_right = np.array([sample for sample in S if sample[wifi_index] > mean_split_value])
-
-        return S_left, S_right, wifi_attr[wifi_index], mean_split_value
+    S_right = [sample for sample in S if sample[random_attribute_index] > rand_split_value]
+    return S_left, S_right, wifi_attr[random_attribute_index], rand_split_value
 
 
-def remainder(split):
-    S_left, S_right = split[:2]
-    size_left = len(S_left)
+def remainder(S_l_r):
+    S_left, S_right = S_l_r[:2]
+    size_left = len(S_left[0])
     size_right = len(S_right)
 
     return (size_left / (size_left + size_right) * H(S_left)) + (size_right / (size_left + size_right) * H(S_right))
@@ -72,47 +67,21 @@ def Gain(S, split):
 
 
 def find_split(S):
-
-    if len(S) == 0:
-        return None
-
-    splits = []
-
-    for i in range(len(wifi_attr)):
-        result_from_split = split(S, i)
-        splits.append(result_from_split)
+    splits = [split(S) for i in range(50)]
     gains = [Gain(S, split) for split in splits]
     max_index = np.argmax(gains)
-    max_gain = gains[max_index]
-
-    if max_gain <= 0:
-        return None
-
-    return max_gain, splits[max_index]
+    return gains[max_index], splits[max_index]
 
 
 if __name__ == "__main__":
 
-    print(H(clean_dataset))
-
-    print(f'type clean data = {type(clean_dataset)}', clean_dataset[:10])
-
-
     good_split = find_split(clean_dataset)
-    gain, split_result = good_split
-    sl, sr, wifi, split_value = split_result
 
+    gain, split = good_split
+    sl, sr, wifi, split_value = split
 
-    print(f"Total entropy = {H(clean_dataset)}, Gain = {gain} \n wfi = {wifi} \n split value = {split_value}")
+    print(f"Gain = {gain} \n wfi = {wifi} \n split value = {split_value}")
 
-    split_left = find_split(sl)
-    gain, split_result = split_left
-    sl2, sr, wifi, split_value = split_result
-
-    print(f"S_left entropy = {H(sl)}, Gain = {gain} \n wfi = {wifi} \n split value =       {split_value}")
-
-    zero_size_arr = np.array([])
-    print(f"find split of zero size array outputs: {find_split(zero_size_arr)}")
 '''
 split = split(clean_dataset)
 S_left, S_right, wifi, split_value = split
