@@ -89,10 +89,47 @@ measurements in `./Figures`.
 
 Prints all the statistical information about the performance of both *pruned* and *unpruned* trees.
 
-For example, here is a sample output on *noisy data*:
+For example, here is a sample output on *clean data*:
 
 ```
+===========================================================================
+======================== UNPRUNED (Clean Dataset) =========================
 
+
+1. Average classification accuracy: 0.974%
+2. Average max depth: 13.6 layers
+3. Average confusion matrix: 
+
+     [[ 49.6   0.    0.4   0. ]
+     
+     [  0.   48.1   1.9   0. ]
+     
+     [  0.2   1.9  47.7   0.2]
+     
+     [  0.5   0.    0.1  49.4]]
+
+4. Label-specific stats:
+>> Room 1
+	Precision: 0.9860834990059641
+	Recall: 0.992
+	F1: 0.989
+
+>> Room 2
+	Precision: 0.9620000000000001
+	Recall: 0.9620000000000001
+	F1: 0.962
+
+>> Room 3
+	Precision: 0.9520958083832336
+	Recall: 0.954
+	F1: 0.953
+
+>> Room 4
+	Precision: 0.9959677419354838
+	Recall: 0.988
+	F1: 0.992
+
+===========================================================================
 
 ```
 
