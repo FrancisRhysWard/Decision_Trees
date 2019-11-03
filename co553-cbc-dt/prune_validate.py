@@ -5,8 +5,8 @@ from create_tree import create_tree, decision_tree_learning
 from pruning3 import prune
 from print_tree import print_results
 
-# clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
-# noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
+clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
+noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
 
 
 def prune_validation(data):
