@@ -7,12 +7,12 @@ Date: 3 November 2019
 
 ## Requirements
 
-This project uses only numpy and matplotlib libraries.
+This project uses only numpy and matplotlib libraries. Python 3.6
 
 
 ## Installing
 
-1. Clone the respository to your Dekstop.
+1. Clone the respository to your Desktop.
 2. Open `main.py`
 3. Import your data by specifying the path to your dataset
 
@@ -35,7 +35,7 @@ In our project, a tree is an object of class `DecisionTree`. Its nodes are objec
 
 
 
-####Class DecisionTree
+###Class DecisionTree
 
 **Attributes:**
 
@@ -44,7 +44,7 @@ In our project, a tree is an object of class `DecisionTree`. Its nodes are objec
 all node objects in that layer.
 
 
-####Class Node
+###Class Node
 
 **Attributes:**
 
@@ -78,21 +78,20 @@ The project folder contains all the methods required for:
 7. Visualising a decision tree
 
 
-#####main.py:
+####main.py:
 
 This is the root file of our project. In its default form, it runs the function `collect_measures(dataset)`,
 which prints out all the calculated measures as output, as well as useful figures on the distribution of
 measurements in `./Figures`.
 
 
-#####collect_measures.py:
+####collect_measures.py:
 
 Prints all the statistical information about the performance of both *pruned* and *unpruned* trees.
 
 For example, here is a sample output on *clean data*:
 
 ```
-===========================================================================
 ======================== UNPRUNED (Clean Dataset) =========================
 
 
@@ -102,11 +101,11 @@ For example, here is a sample output on *clean data*:
 
      [[ 49.6   0.    0.4   0. ]
      
-     [  0.   48.1   1.9   0. ]
+      [  0.   48.1   1.9   0. ]
      
-     [  0.2   1.9  47.7   0.2]
+      [  0.2   1.9  47.7   0.2]
      
-     [  0.5   0.    0.1  49.4]]
+      [  0.5   0.    0.1  49.4]]
 
 4. Label-specific stats:
 >> Room 1
@@ -139,7 +138,7 @@ it step-by-step.
 
 It also includes function `def plot_histogram(data, n_plots, file_name, normalising=False)`, which produces the afore-mentioned figures.
 
-#####create_tree.py:
+####create_tree.py:
 
 Contains functions to **instantiate** a tree object, as well as run **learning**.
 
@@ -149,7 +148,7 @@ Contains functions to **instantiate** a tree object, as well as run **learning**
 
 
 
-#####evaluate.py:
+####evaluate.py:
 
 Contains the following functions:
 
@@ -172,13 +171,13 @@ avg_cm, avg_depth, min_depth, max_depth, room_stats
 
 
 
-#####predict.py:
+####predict.py:
 
 Contains `def predict(tree, sample)`, which, given a learned tree and data sample, outputs
 the predicted label (based on the split attributes of the learned tree).
 
 
-#####prune_validate.py:
+####prune_validate.py:
 
 Contains:
 
@@ -198,7 +197,7 @@ pruning). Here's a step-by-step functionality:
  
  
  
-#####pruning.py:
+####pruning.py:
 
 This file contains function `prune(pruned_tree, validation_data)`, which takes in an unpruned tree and validation set as inputs
 and attempts to prune the tree. Here are the steps of pruning:
@@ -214,7 +213,7 @@ and attempts to prune the tree. Here are the steps of pruning:
 9. Return pruned tree        
 
 
-#####plot_tree.py:
+####plot_tree.py:
 
 Plots a decision tree before and after pruning
 
