@@ -78,4 +78,7 @@ def prune(pruned_tree, validation_data):
                     continue
 
 
+    # Get rid of empty lists before returning
+    pruned_tree.node_list = [layer for layer in pruned_tree.node_list if layer != []]
+
     return pruned_tree

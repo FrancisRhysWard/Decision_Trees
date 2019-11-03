@@ -4,6 +4,10 @@ from tree import DecisionTree
 from random import choice, randint
 from predict import predict
 from evaluate import evaluate, divide_data
+<<<<<<< HEAD
+=======
+from pruning3 import prune
+>>>>>>> bb5ed4c18b6dd4d25e9eeeb3c4018308a85c139f
 from prune_validate import prune_validation
 from create_tree import create_tree, decision_tree_learning
 from print_tree import print_results
@@ -19,17 +23,44 @@ if __name__ == '__main__':
 
     # Choose the dataset
     current_dataset = noisy_dataset
+    divided_data = divide_data(current_dataset, 10)
+    i = 0
+    j = 1
 
-    # Retrieve all measures
-    all_measures = prune_validation(current_dataset)
+    test_data = divided_data[i]
+    errors_on_this_test = []
 
-    # Get the average classification rate
-    sum_accuracy = 0
-    for measure in all_measures:
-        accuracy = measure[0]
-        sum_accuracy += accuracy
+    validation_data = divided_data[(i + j) % 10]
+    training_data = np.concatenate([a for a in divided_data if not (a == test_data).all() and not (a == validation_data).all()])
 
-    print('Total observed accuracy on NOISY is {}%'.format((sum_accuracy/90)*100))
+
+
+    tree = create_tree(training_data, 10)
+    decision_tree_learning(tree)
+
+    print(len(tree.node_list))
+    print(tree.node_list)
+
+    prune(tree, validation_data )
+
+    print(len(tree.node_list))
+    print(tree.node_list)
+
+
+    # # Retrieve all measures
+    # all_measures = prune_validation(current_dataset)
+    #
+    # # Get the average classification rate
+    # sum_accuracy = 0
+    # for measure in all_measures:
+    #     accuracy = measure[0]
+    #     sum_accuracy += accuracy
+    #
+    # print('Total observed accuracy on NOISY is {}%'.format((sum_accuracy/90)*100))
+
+
+
+
     # measures, unpruned_measures = prune_validation(clean_dataset)
     # rates = [rate[0] for rate in measures]
     # print(rates)
