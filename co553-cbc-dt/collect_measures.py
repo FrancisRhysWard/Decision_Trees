@@ -6,7 +6,12 @@ def collect_measures(dataset):
     '''
 
     :param dataset:
-           measures = []
+           measures = [
+                        classification rate,
+                        confusion matrix,
+                        max_depth,
+                        {label, precision, recall, f1}
+                        ]
     :return:
     '''
 
