@@ -131,8 +131,10 @@ def get_avg_stats(cv):
 
     avg_depth = sum([measure[2] for measure in cv])/len(cv)
 
+    min_depth, max_depth = min([measure[2] for measure in cv]), max([measure[2] for measure in cv])
 
-    return avg_acc, avg_cm, avg_depth
+
+    return avg_acc, avg_cm, avg_depth, min_depth, max_depth
 
 
 if __name__ == "__main__":

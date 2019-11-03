@@ -104,9 +104,9 @@ def prune_validation(data):
 if __name__ == "__main__":
     pruned_results = prune_validation(noisy_dataset)
 
-    av_acc, av_cm, av_depth = get_avg_stats(pruned_results)
+    av_acc, av_cm, av_depth, min_depth, max_depth = get_avg_stats(pruned_results)
 
-    print(av_acc, av_depth, av_cm)
+    print(av_acc, av_depth, av_cm, min_depth, max_depth)
 
     for room in room_labels:
         p = precision_recall(room, av_cm)[0]
