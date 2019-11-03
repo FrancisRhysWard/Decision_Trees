@@ -169,7 +169,6 @@ def get_avg_stats(all_10_measures):
 
     room_stats = []
 
-<<<<<<< HEAD
     for room in room_labels:
         label = '>> Room {}'.format(room)
         p_str = '\tPrecision: {}'.format(precision_recall(room, avg_cm)[0])
@@ -184,12 +183,6 @@ def get_avg_stats(all_10_measures):
         # print(f"{room} & {round(p,4)} &  {round(r,4)} &  {round(F1(p, r),4)} \\\\")
 
     return avg_acc, avg_cm, avg_depth, min_depth, max_depth, room_stats
-=======
-    min_depth, max_depth = min([measure[2] for measure in cv]), max([measure[2] for measure in cv])
-
-
-    return avg_acc, avg_cm, avg_depth, min_depth, max_depth
->>>>>>> 0dee2c2ad29f441c4973f5d7ef94fb03a22b9108
 
 
 if __name__ == "__main__":

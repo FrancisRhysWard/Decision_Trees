@@ -7,7 +7,6 @@ import find_split
 clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
 noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
 
-# Initialise the WHAT?
 data_size = len(clean_dataset)
 wifi_attr = [i for i in range(1, len(clean_dataset[0]))]
 

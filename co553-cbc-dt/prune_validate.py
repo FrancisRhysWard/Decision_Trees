@@ -72,11 +72,8 @@ if __name__ == "__main__":
     # Sandbox
     pruned_results = prune_validation(noisy_dataset)
 
-<<<<<<< HEAD
     av_acc, av_cm, av_depth, _, _ = get_avg_stats(pruned_results)
-=======
-    av_acc, av_cm, av_depth, min_depth, max_depth = get_avg_stats(pruned_results)
->>>>>>> 0dee2c2ad29f441c4973f5d7ef94fb03a22b9108
+
 
     print(av_acc, av_depth, av_cm, min_depth, max_depth)
 
