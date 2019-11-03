@@ -197,7 +197,7 @@ pruning). Here's a step-by-step functionality:
  
  
  
-####pruning.py:
+#### pruning.py:
 
 This file contains function `prune(pruned_tree, validation_data)`, which takes in an unpruned tree and validation set as inputs
 and attempts to prune the tree. Here are the steps of pruning:
