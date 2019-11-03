@@ -4,7 +4,6 @@ from tree import DecisionTree
 from random import choice, randint
 from predict import predict
 from evaluate import evaluate, divide_data
-from pruning import prune
 from prune_validate import prune_validation
 from create_tree import create_tree, decision_tree_learning
 from print_tree import print_results

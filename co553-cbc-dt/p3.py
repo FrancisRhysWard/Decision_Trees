@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as lines
 from evaluate import *
 
-
+from pruning3 import prune
 from tree import DecisionTree
 
-from main2 import *
+from main import *
 
 
 
@@ -28,8 +28,6 @@ training_data = np.concatenate([ a for a in divided_data if not (a==test_data).a
 # Train a tree
 tree = create_tree(training_data, 10)
 decision_tree_learning(tree)
-tree_copy = create_tree(training_data, 10)
-decision_tree_learning(tree_copy)
 
 start_node = tree.start_node
 
@@ -41,6 +39,7 @@ width = 2000
 max_nodes_in_layer = max([len(layer) for layer in tree.node_list])
 
 for layer in tree.node_list:
+# # Prune tree on validation data
     for i, node in enumerate(layer):
         if node.children != None:
             node.children[0].coord[0] = node.coord[0]  - width  #len(tree.node_list)/(tree.node_list.index(layer) +1)
@@ -54,6 +53,14 @@ for layer in tree.node_list:
         node_x = node.coord[0]
         node_y = node.coord[1]
         if node.children != None:
+            wifi, value = node.split_attribute[1][2:]
+            plt.text(node_x, node_y, f"Wifi {wifi} <= {value}?", size=10,
+           ha="center", va="center",
+           bbox=dict(boxstyle="round",
+                     ec=(0.2, 0.5, 0.5),
+                     fc=(0.2, 0.8, 0.8),
+                     )
+           )
             for child in node.children:
                 xt = [node_x,  child.coord[0]]
                 yt = [node_y, child.coord[1]]
@@ -61,37 +68,9 @@ for layer in tree.node_list:
 
 plt.show()
 
-<<<<<<< HEAD
-
-# # Prune tree on validation data
-# pruned_tree = prune(tree, tree_copy, validation_data)
-#
-# max_nodes_in_layer = max([len(layer) for layer in pruned_tree.node_list])
-#
-# for layer in pruned_tree.node_list:
-#     for i,node in enumerate(layer):
-#         if node.children != None:
-#             node.children[0].coord[0] = node.coord[0]  - len(pruned_tree.node_list)/(pruned_tree.node_list.index(layer) + 1)
-#             node.children[0].coord[1] = node.coord[1] - 5 # -1 depth
-#
-#             node.children[1].coord[0] = node.coord[0]  + len(pruned_tree.node_list)/(pruned_tree.node_list.index(layer) + 1)
-#             node.children[1].coord[1] = node.coord[1] - 5 # -1 depth
-#
-#
-# for layer in pruned_tree.node_list:
-#     for node in layer:
-#         node_x = node.coord[0]
-#         node_y = node.coord[1]
-#         if node.children != None:
-#             for child in node.children:
-#                 xt = [node_x,  child.coord[0]]
-#                 yt = [node_y, child.coord[1]]
-#                 plt.plot(xt, yt)
-#
-# plt.show()
 
 # Prune tree on validation data
-pruned_tree = prune(tree, tree_copy, validation_data)
+pruned_tree = prune(tree, validation_data)
 
 for layer in tree.node_list:
     for i, node in enumerate(layer):
@@ -107,11 +86,18 @@ for layer in tree.node_list:
         node_x = node.coord[0]
         node_y = node.coord[1]
         if node.children != None:
+            wifi, value = node.split_attribute[1][2:]
+            plt.text(node_x, node_y, f"Wifi {wifi} <= {value}?", size=10,
+          ha="center", va="center",
+          bbox=dict(boxstyle="round",
+                    ec=(0.2, 0.5, 0.5),
+                    fc=(0.2, 0.8, 0.8),
+                    )
+          )
+
             for child in node.children:
                 xt = [node_x,  child.coord[0]]
                 yt = [node_y, child.coord[1]]
                 plt.plot(xt, yt)
 plt.show()
 
-=======
->>>>>>> 944c3015698fa68a009b82c8789eff4bf9455460

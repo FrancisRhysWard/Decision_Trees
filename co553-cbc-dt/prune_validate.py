@@ -41,6 +41,8 @@ def prune_validation(data):
             validation_data = divided_data[(i+j) % 10]
             training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all() and not (a==validation_data).all()])
 
+            print(i,j)
+
             # Train a tree
             tree = create_tree(training_data, 10)
             decision_tree_learning(tree)
@@ -69,7 +71,7 @@ def prune_validation(data):
 if __name__ == "__main__":
 
     # Sandbox
-    pruned_results = prune_validation(clean_dataset)
+    pruned_results = prune_validation(noisy_dataset)
 
     av_acc, av_cm, av_depth, min_depth, max_depth = get_avg_stats(pruned_results)
 
