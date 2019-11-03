@@ -40,6 +40,8 @@ def prune_validation(data):
             validation_data = divided_data[(i+j) % 10]
             training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all() and not (a==validation_data).all()])
 
+            print(i,j)
+
             # Train a tree
             tree = create_tree(training_data)
             decision_tree_learning(tree)
@@ -68,11 +70,15 @@ def prune_validation(data):
 if __name__ == "__main__":
 
     # Sandbox
-    pruned_results = prune_validation(clean_dataset)
+    pruned_results = prune_validation(noisy_dataset)
 
+<<<<<<< HEAD
     av_acc, av_cm, av_depth, _, _ = get_avg_stats(pruned_results)
+=======
+    av_acc, av_cm, av_depth, min_depth, max_depth = get_avg_stats(pruned_results)
+>>>>>>> 0dee2c2ad29f441c4973f5d7ef94fb03a22b9108
 
-    print(av_acc, av_depth, av_cm)
+    print(av_acc, av_depth, av_cm, min_depth, max_depth)
 
     for room in room_labels:
         p = precision_recall(room, av_cm)[0]
