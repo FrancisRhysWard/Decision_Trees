@@ -127,8 +127,6 @@ def evaluate(test_data, learned_tree):
     return measures
 
 
-# ======================================
-# WHEN DO WE ACTUALLY USE THESE METHODS?
 
 def cross_validation(data):
     '''
@@ -144,10 +142,10 @@ def cross_validation(data):
     all_10_measures = []
 
     for i in range(10):
+
         test_data = divided_data[i]
 
         training_data = np.concatenate([ a for a in divided_data if not (a==test_data).all()])
-
 
         tree = create_tree(training_data, 2)
 

@@ -32,6 +32,10 @@ def prune(pruned_tree, validation_data):
             if layer_idx == 0:
                 stopPruning = True
 
+            # If the layer is empty, delete it
+            if layer == []:
+                node_list.pop(layer_idx)
+
             # Look at each node
             for node_idx, node in enumerate(layer[::-1]):
 
