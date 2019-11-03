@@ -157,8 +157,6 @@ Contains the following functions:
 
 * `def cross_validation(data)`: takes a dataset and performs a 10-fold cross-validation returning performance measures
 
-* `def cross_validation(data)`: takes a dataset and performs a 10-fold cross-validation returning performance measures
-
 * `def divide_data(data, k_folds)`: shuffles and divides data into k-folds
 
 * `def create_confusion_matrix(test_data, tree_predictions)`: creates a confusion matrix based on the true and predicted labels
