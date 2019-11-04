@@ -7,12 +7,12 @@ Date: 3 November 2019
 
 ## Requirements
 
-This project uses only numpy and matplotlib libraries. Python 3.6
+This project uses only numpy and matplotlib libraries.
 
 
 ## Installing
 
-1. Clone the respository to your Desktop.
+1. Clone the repository to your Desktop.
 2. Open `main.py`
 3. Import your data by specifying the path to your dataset
 
@@ -29,7 +29,7 @@ Please refer to **Project Structure** section to learn more about what `main.py`
 
 ## Tree and node representation
 
-We thought the best way to represent trees and its respective constituents is to employ object-oriented representation.
+We thought the best way to represent trees and their respective constituents is to employ object-oriented representation.
 
 In our project, a tree is an object of class `DecisionTree`. Its nodes are objects of class `Node`.
 

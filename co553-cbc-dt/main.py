@@ -27,6 +27,22 @@ if __name__ == '__main__':
 
 
     # ======= YOUR DATA HERE =======
-
     # dataset = np.load(" INPUT PATH TO YOUR DATASET ")
+
+
+
+    # ======= PERFORM COMPLETE EVALUATION =======
     # collect_measures(dataset)
+
+
+
+
+    # ********* Side note ************
+
+    # ======= TO CREATE A TREE =======
+    # tree = create_tree(dataset)
+    # decision_tree_learning(tree)
+
+
+    # ======= TO EVALUATE A TREE =======
+    # measures = evaluate(test_data, tree)

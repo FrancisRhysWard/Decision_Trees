@@ -85,7 +85,10 @@ def evaluate(test_data, learned_tree):
                             classification rate,
                             confusion matrix,
                             max_depth,
-                            {label, precision, recall, f1}
+                            {label1, precision, recall, f1},
+                            {label2, precision, recall, f1},
+                            {label3, precision, recall, f1},
+                            {label4, precision, recall, f1}
                             ]
     '''
 
@@ -114,7 +117,7 @@ def evaluate(test_data, learned_tree):
     # Initialise a list of measures with classification rate and max_depth
     measures = [classification_rate, confusion_matrix, max_depth]
 
-    # Add all other stats to measures
+    # Add all label-specific stats to measures
     for i in room_labels:
         room_measures = {}
         room_measures["label"] = i
@@ -136,8 +139,6 @@ def cross_validation(data):
 
     divided_data = divide_data(data, 10)
 
-    #print(divided_data)
-
     all_10_measures = []
 
     for i in range(10):
@@ -158,7 +159,11 @@ def cross_validation(data):
 
 
 def get_avg_stats(all_10_measures):
+    '''
 
+    :param all_10_measures: list of all performance measures
+    :return: performance measures
+    '''
     avg_acc = sum([measure[0] for measure in all_10_measures]) / len(all_10_measures)
 
     avg_cm = sum([measure[1] for measure in all_10_measures]) / len(all_10_measures)
@@ -187,12 +192,13 @@ def get_avg_stats(all_10_measures):
 
 if __name__ == "__main__":
 
+    # Sandbox
+
     noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
 
     clean_dataset = np.loadtxt("./wifi_db/clean_dataset.txt")
-    #print(cross_validation(clean_dataset))
 
-    av_acc, av_cm, av_depth = get_avg_stats(cross_validation(clean_dataset))
+    av_acc, av_cm, av_depth, _, _, _ = get_avg_stats(cross_validation(clean_dataset))
 
     print(av_acc, av_depth, av_cm)
 
