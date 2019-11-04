@@ -46,3 +46,7 @@ if __name__ == '__main__':
 
     # ======= TO EVALUATE A TREE =======
     # measures = evaluate(test_data, tree)
+
+
+    # ======= TO EVALUATE WITH PRUNING =======
+    # measures = evaluate(dataset, tree)

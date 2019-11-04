@@ -11,6 +11,8 @@ noisy_dataset = np.loadtxt("./wifi_db/noisy_dataset.txt")
 
 def prune_validation(data):
     '''
+    Performs complete evaluation of the decision tree algorithm with pruning
+    Here are the steps:
     1. Split data into TEST and TRAINING+VALIDATION (x10 times)
         2. Split TRAINING+VALIDATION into TRAINING and VALIDATION (x9 times)
             3. For each TRAINING and VALIDATION:
