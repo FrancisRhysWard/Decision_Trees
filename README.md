@@ -24,7 +24,7 @@ This project uses only numpy and matplotlib libraries.
         # dataset = np.load(" INPUT PATH TO YOUR DATASET ")
     ```
 4. Run `main.py` to collect all the measures for your dataset (see examples below).
-5. Alternatively, please scroll down in `main.py` to see examples of using particular functionality.
+5. Alternatively, please scroll down in `main.py` to see examples of using particular functionalities.
 
 Please refer to **Project Structure** section to learn more about what `main.py` does.
 
