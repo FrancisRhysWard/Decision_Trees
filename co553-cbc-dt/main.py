@@ -37,6 +37,7 @@ if __name__ == '__main__':
 
 
 
+
     # ********* Side note ************
 
     # ======= TO CREATE A TREE =======
@@ -48,5 +49,9 @@ if __name__ == '__main__':
     # measures = evaluate(test_data, tree)
 
 
+    # ===== OR TO USE CROSS VALIDATION 10-fold ====
+    # all_10_measures = cross_validation(dataset)
+
+
     # ======= TO EVALUATE WITH PRUNING =======
-    # measures = prune_validation(dataset)
+    # all_90_measures = prune_validation(dataset)
