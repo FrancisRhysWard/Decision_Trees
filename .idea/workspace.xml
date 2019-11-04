@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="349cfe29-d477-42f0-863f-589349ba4b26" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/co553-cbc-dt/main.py" afterPath="$PROJECT_DIR$/co553-cbc-dt/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" afterPath="$PROJECT_DIR$/co553-cbc-dt/prune_validate.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +17,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="105">
-                <caret line="7" column="63" lean-forward="false" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
+              <first_editor relative-caret-position="315">
+                <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -295,8 +293,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="105">
-            <caret line="7" column="63" lean-forward="false" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
+          <first_editor relative-caret-position="315">
+            <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
             <folding />
           </first_editor>
           <second_editor />
