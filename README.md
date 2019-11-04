@@ -5,7 +5,7 @@ Authors: Rhys, James, Richard, Alex
 Date: 3 November 2019
 
 **It is highly recommended to view this README on GitLab for better readability**
-** https://gitlab.doc.ic.ac.uk/jr1419/intro2ml_cw1_decisiontrees **
+**https://gitlab.doc.ic.ac.uk/jr1419/intro2ml_cw1_decisiontrees**
 
 ## Requirements
 
