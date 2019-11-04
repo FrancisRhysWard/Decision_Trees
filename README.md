@@ -12,20 +12,21 @@ This project uses only numpy and matplotlib libraries.
 
 ## Installing
 
-1. Clone the repository to your Desktop.
+1. Clone the repository to the destination of your choice.
 2. Open `main.py`
 3. Import your data by specifying the path to your dataset
 
     ```
         # ======= YOUR DATA HERE =======
-    
+
         # dataset = np.load(" INPUT PATH TO YOUR DATASET ")
     ```
-4. Run `main.py` to collect all the measures for your dataset. 
+4. Run `main.py` to collect all the measures for your dataset (see examples below).
+5. Alternatively, please scroll down in `main.py` to see examples of using particular functionality.
 
 Please refer to **Project Structure** section to learn more about what `main.py` does.
 
- 
+
 
 ## Tree and node representation
 
@@ -72,7 +73,7 @@ The project folder contains all the methods required for:
 1. Creating an instance of a DecisionTree
 2. Training a DecisionTree on training data
 3. Performing the splitting of the datasets (into test, training, validation sets)
-4. Performing cross validation 
+4. Performing cross validation
 5. Pruning a tree based on some validation set
 6. Collect all the performance measures (classification rate, confusion matrix, precision, etc.)
 7. Visualising a decision tree
@@ -97,14 +98,14 @@ For example, here is a sample output on *clean data*:
 
 1. Average classification accuracy: 0.974%
 2. Average max depth: 13.6 layers
-3. Average confusion matrix: 
+3. Average confusion matrix:
 
      [[ 49.6   0.    0.4   0. ]
-     
+
       [  0.   48.1   1.9   0. ]
-     
+
       [  0.2   1.9  47.7   0.2]
-     
+
       [  0.5   0.    0.1  49.4]]
 
 4. Label-specific stats:
@@ -133,7 +134,7 @@ For example, here is a sample output on *clean data*:
 ```
 
 
-`collect_measures.py` indirectly employs all of the functionality of our project. Let's now review 
+`collect_measures.py` indirectly employs all of the functionality of our project. Let's now review
 it step-by-step.
 
 It also includes function `def plot_histogram(data, n_plots, file_name, normalising=False)`, which produces the afore-mentioned figures.
@@ -145,6 +146,17 @@ Contains functions to **instantiate** a tree object, as well as run **learning**
 * `def create_tree(_dataset)`: returns an object DecisionTree
 * `def decision_tree_learning(tree)`: runs learning based on the methods of `Node` class, such as `find_split()`,
  `split_data()`, `create_children()`.
+
+
+#### find_split.py:
+
+Implements all the functionality required to find a good split of a dataset. This is done by iterating over all 
+unique values in each column (corresponding to one feature) and evaluating a split on each.
+
+* `def find_split(dataset)`: finds the best split and returns a tuple = (max_gain, (left dataset, right dataset, split attribute, split value))
+* Functions `p_k(_label, _dataset)`, `H(_dataset)` and `remainder(split)` calculate sample probability of label, entropy and remainder respectively.
+This is needed to choose the best split
+* `def split_by_set(_dataset, wifi_index, value)` : attempts to split a dataset given the split attribute and split value
 
 
 
@@ -188,15 +200,15 @@ pruning). Here's a step-by-step functionality:
         * For each, *TRAINING* and *VALIDATION*:
             1. Train a tree using *TRAINING*
             2. Prune a tree using *VALIDATION*
-            3. Test each pruned tree using **TEST** 
+            3. Test each pruned tree using **TEST**
     * Return 90 measures
       - (9 pruned trees x 10 test sets = 90 performance measures)
-        
-        
+
+
  We must now discuss the pruning implementation.
- 
- 
- 
+
+
+
 #### pruning.py:
 
 This file contains function `prune(pruned_tree, validation_data)`, which takes in an unpruned tree and validation set as inputs
@@ -216,37 +228,3 @@ and attempts to prune the tree. Here are the steps of pruning:
 #### plot_tree.py:
 
 Plots a decision tree before and after pruning
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-

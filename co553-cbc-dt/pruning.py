@@ -1,5 +1,4 @@
 from evaluate import evaluate
-from assign_unique_id import assign_id
 
 
 def prune(pruned_tree, validation_data):
@@ -9,9 +8,6 @@ def prune(pruned_tree, validation_data):
     :param validation_data: 200x8 numpy array
     :return: a tree with a fresh haircut
     '''
-
-    # Assign a unique id to every node
-    assign_id(pruned_tree.node_list)
 
     # Retrieve the node list of the tree
     node_list = pruned_tree.node_list
