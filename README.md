@@ -1,6 +1,7 @@
 # Introduction to Machine Learning - Coursework 1 (Decision Trees)
 
-Authors: Rhys, James, Richard, Alex
+Authors: Richard Mardiat, James Rowbottom, Francis Rhys Ward, Alexey
+Zakharov
 
 Date: 3 November 2019
 
